@@ -6,7 +6,7 @@ namespace core {
 	class UnaryExpression
 	{
 	public:
-		virtual T evaluate(Expression * o) const = 0;
+		virtual T evaluate(Expression<T> * o) const = 0;
 	};
 }
 #endif

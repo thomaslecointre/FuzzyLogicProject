@@ -11,7 +11,7 @@ namespace core {
 		~UnaryExpressionModel();
 
 		T evaluate() const;
-		T evaluate(Expression * o) const;
+		T evaluate(Expression<T> * o) const;
 
 	private:
 		UnaryExpression * operator;
@@ -38,7 +38,7 @@ namespace core {
 	}
 
 	template<class T>
-	T UnaryExpressionModel<T>::evaluate(Expression * o) const
+	T UnaryExpressionModel<T>::evaluate(Expression<T> * o) const
 	{
 		if (operator != null)
 			return operator.evaluate(o);

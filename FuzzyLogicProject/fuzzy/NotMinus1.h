@@ -1,5 +1,8 @@
 #ifndef NOT_MINUS_1_H
 #define NOT_MINUS_1_H
+#include "../core/Expression.h"
+#include "Not.h"
+using namespace core;
 namespace fuzzy {
 	template <class T>
 	class NotMinus1 : public Not<T>
@@ -8,7 +11,7 @@ namespace fuzzy {
 		NotMinus1();
 		~NotMinus1();
 		
-		T evaluate(Expression * o) const;
+		T evaluate(Expression<T> * o) const;
 	};
 
 	template<class T>
@@ -22,7 +25,7 @@ namespace fuzzy {
 	}
 
 	template<class T>
-	T NotMinus1<T>::evaluate(Expression * o) const
+	T NotMinus1<T>::evaluate(Expression<T> * o) const
 	{
 		// TODO
 		return T(); // false

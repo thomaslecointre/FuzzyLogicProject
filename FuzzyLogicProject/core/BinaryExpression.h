@@ -6,7 +6,7 @@ namespace core {
 	class BinaryExpression
 	{
 	public:
-		virtual T evaluate(Expression * l, Expression * r) const = 0;
+		virtual T evaluate(Expression<T> * l, Expression<T> * r) const = 0;
 	};
 }
 #endif
