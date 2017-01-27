@@ -2,10 +2,14 @@
 //
 
 #include "stdafx.h"
-
+#include "core/ValueModel.h"
+#include <iostream>
+using namespace core;
 
 int main()
 {
-    return 0;
+	ValueModel<int> vm(5);
+	std::cout << vm.evaluate();
+	return 0;
 }
 
