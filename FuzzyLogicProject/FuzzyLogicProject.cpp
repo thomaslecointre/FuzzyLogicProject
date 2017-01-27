@@ -9,7 +9,9 @@ using namespace core;
 int main()
 {
 	ValueModel<int> vm(5);
+	ValueModel<int> * vm2 = new ValueModel<int>(5);
 	std::cout << vm.evaluate();
+	std::cout << vm2->evaluate();
 	return 0;
 }
 

@@ -62,5 +62,11 @@
     <ClInclude Include="fuzzy\NotMinus1.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\Is.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\IsTriangle.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
