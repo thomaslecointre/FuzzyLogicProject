@@ -5,6 +5,8 @@
 #include "core/ValueModel.h"
 #include "fuzzy/IsTriangle.h"
 #include "fuzzy/IsTrapezoidLeft.h"
+#include "fuzzy\IsTrapezoidRight.h"
+#include "fuzzy\IsTrapezoid.h"
 #include <iostream>
 
 using namespace core;
@@ -12,8 +14,10 @@ using namespace fuzzy;
 
 int main()
 {
-	ValueModel<float> * vm = new ValueModel<float>(5);
-	
+	/*
+	ValueModel<float> * vm = new ValueModel<float>(100);
+	*/
+
 	/*
 	ValueModel<int> vm(5);
 	std::cout << vm.evaluate();
@@ -24,9 +28,31 @@ int main()
 	IsTriangle<float> * it = new IsTriangle<float>(2, 4, 6);
 	std::cout << it->evaluate(vm);
 	*/
+	
+	/*
+	IsTrapezoidLeft<float> trap(10, 30);
+	std::cout << trap.evaluate(new ValueModel<float>(5)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(15)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(60)) << std::endl;
+	*/
+	
+	/*
+	IsTrapezoidRight<float> trap(75, 90);
+	std::cout << trap.evaluate(new ValueModel<float>(100)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(80)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(60)) << std::endl;
+	*/
 
-	IsTrapezoidLeft<float> trap(3, 4);
-	std::cout << trap.evaluate(vm);
+	/*
+	IsTrapezoid<float> trap(10, 20, 30, 40);
+	std::cout << trap.evaluate(new ValueModel<float>(100)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(35)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(25)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(15)) << std::endl;
+	std::cout << trap.evaluate(new ValueModel<float>(5)) << std::endl;
+	*/
+
+
 
 	return 0;
 }

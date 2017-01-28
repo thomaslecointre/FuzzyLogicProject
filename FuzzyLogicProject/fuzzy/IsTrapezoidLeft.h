@@ -37,7 +37,7 @@ namespace fuzzy {
 	T IsTrapezoidLeft<T>::evaluate(Expression<T>* o) const
 	{
 		T v = o->evaluate();
-		if(v >= mid2 && v <= max)
+		if(v >= min && v <= max)
 		{
 			if (v >= mid2)
 				return (max - v) / (max - mid2);

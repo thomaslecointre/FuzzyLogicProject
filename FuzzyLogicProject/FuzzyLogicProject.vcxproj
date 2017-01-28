@@ -161,7 +161,9 @@
     <ClInclude Include="core\UnaryExpressionModel.h" />
     <ClInclude Include="core\ValueModel.h" />
     <ClInclude Include="fuzzy\Is.h" />
+    <ClInclude Include="fuzzy\IsTrapezoid.h" />
     <ClInclude Include="fuzzy\IsTrapezoidLeft.h" />
+    <ClInclude Include="fuzzy\IsTrapezoidRight.h" />
     <ClInclude Include="fuzzy\IsTriangle.h" />
     <ClInclude Include="fuzzy\Not.h" />
     <ClInclude Include="fuzzy\NotMinus1.h" />

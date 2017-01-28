@@ -71,5 +71,11 @@
     <ClInclude Include="fuzzy\IsTrapezoidLeft.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\IsTrapezoidRight.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\IsTrapezoid.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
