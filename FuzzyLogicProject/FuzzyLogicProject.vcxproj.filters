@@ -77,5 +77,47 @@
     <ClInclude Include="fuzzy\IsTrapezoid.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\And.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\Or.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\Then.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\Agg.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\AndMin.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\AndMult.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\OrMax.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\OrPlus.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\ThenMult.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\ThenMin.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\AggMax.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\AggPlus.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\MamdaniDefuzz.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\CogDefuzz.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

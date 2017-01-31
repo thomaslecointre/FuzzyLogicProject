@@ -160,13 +160,27 @@
     <ClInclude Include="core\UnaryExpression.h" />
     <ClInclude Include="core\UnaryExpressionModel.h" />
     <ClInclude Include="core\ValueModel.h" />
+    <ClInclude Include="fuzzy\Agg.h" />
+    <ClInclude Include="fuzzy\AggMax.h" />
+    <ClInclude Include="fuzzy\AggPlus.h" />
+    <ClInclude Include="fuzzy\And.h" />
+    <ClInclude Include="fuzzy\AndMin.h" />
+    <ClInclude Include="fuzzy\AndMult.h" />
+    <ClInclude Include="fuzzy\CogDefuzz.h" />
     <ClInclude Include="fuzzy\Is.h" />
     <ClInclude Include="fuzzy\IsTrapezoid.h" />
     <ClInclude Include="fuzzy\IsTrapezoidLeft.h" />
     <ClInclude Include="fuzzy\IsTrapezoidRight.h" />
     <ClInclude Include="fuzzy\IsTriangle.h" />
+    <ClInclude Include="fuzzy\MamdaniDefuzz.h" />
     <ClInclude Include="fuzzy\Not.h" />
     <ClInclude Include="fuzzy\NotMinus1.h" />
+    <ClInclude Include="fuzzy\Or.h" />
+    <ClInclude Include="fuzzy\OrMax.h" />
+    <ClInclude Include="fuzzy\OrPlus.h" />
+    <ClInclude Include="fuzzy\Then.h" />
+    <ClInclude Include="fuzzy\ThenMin.h" />
+    <ClInclude Include="fuzzy\ThenMult.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
