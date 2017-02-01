@@ -27,8 +27,7 @@ namespace fuzzy {
 	template<class T>
 	T NotMinus1<T>::evaluate(Expression<T> * o) const
 	{
-		// TODO
-		return T(); // false
+		return 1 - o->evaluate();
 	}
 }
 #endif // !NOT_MINUS_1_H
