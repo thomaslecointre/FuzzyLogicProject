@@ -7,6 +7,14 @@
 #include "fuzzy/IsTrapezoidLeft.h"
 #include "fuzzy\IsTrapezoidRight.h"
 #include "fuzzy\IsTrapezoid.h"
+#include "fuzzy\AggMax.h"
+#include "fuzzy\AggPlus.h"
+#include "fuzzy\AndMin.h"
+#include "fuzzy\AndMult.h"
+#include "fuzzy\OrMax.h"
+#include "fuzzy\OrPlus.h"
+#include "fuzzy\ThenMin.h"
+#include "fuzzy\ThenMult.h"
 #include <iostream>
 
 using namespace core;
@@ -52,7 +60,45 @@ int main()
 	std::cout << trap.evaluate(new ValueModel<float>(5)) << std::endl;
 	*/
 
+	/*
+	AggMax<float> * am = new AggMax<float>();
+	std::cout << am->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
 
+	/*
+	AggPlus<float> * ap = new AggPlus<float>();
+	std::cout << ap->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+	
+	/*
+	AndMin<float> * am = new AndMin<float>();
+	std::cout << am->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+
+	/*
+	AndMult<float> * am = new AndMult<float>();
+	std::cout << am->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+
+	/*
+	OrMax<float> * om = new OrMax<float>();
+	std::cout << om->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+
+	/*
+	OrPlus<float> * op = new OrPlus<float>();
+	std::cout << op->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+
+	/*
+	ThenMin<float> * tm = new ThenMin<float>();
+	std::cout << tm->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+
+	/*
+	ThenMult<float> * tm = new ThenMult<float>();
+	std::cout << tm->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
 
 	return 0;
 }
