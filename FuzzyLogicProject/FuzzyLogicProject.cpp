@@ -113,8 +113,10 @@ int main()
 	std::cout << ig->evaluate(new ValueModel<float>(0)) << std::endl;
 	*/
 
-	IsBell<float> * ib = new IsBell<float>(2, 4, 6);
-	std::cout << ib->evaluate(new ValueModel<float>(6)) << std::endl;
+	// Mieux
+	ValueModel<float> v(6);
+	IsBell<float> ib(2, 4, 6);
+	std::cout << ib.evaluate(&v) << std::endl;
 	return 0;
 }
 
