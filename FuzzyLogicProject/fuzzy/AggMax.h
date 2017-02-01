@@ -26,7 +26,9 @@ namespace fuzzy {
 
 	template<class T>
 	T AggMax<T>::evaluate(Expression<T> *l, Expression<T> *r) const{
-		return (l->evaluate() > r->evaluate()) ? l->evaluate() : r->evaluate();
+		T l2 = l->evaluate();
+		T r2 = r->evaluate();
+		return (l2 > r2) ? l2 : r2;
 	}
 }
 
