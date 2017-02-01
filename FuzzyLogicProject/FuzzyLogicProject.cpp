@@ -15,6 +15,7 @@
 #include "fuzzy\OrPlus.h"
 #include "fuzzy\ThenMin.h"
 #include "fuzzy\ThenMult.h"
+#include "fuzzy\NotMinus1.h"
 #include <iostream>
 
 using namespace core;
@@ -98,6 +99,11 @@ int main()
 	/*
 	ThenMult<float> * tm = new ThenMult<float>();
 	std::cout << tm->evaluate(new ValueModel<float>(5), new ValueModel<float>(7)) << std::endl;
+	*/
+
+	/*
+	NotMinus1<float> * nm1 = new NotMinus1<float>();
+	std::cout << nm1->evaluate(new ValueModel<float>(1));
 	*/
 
 	return 0;
