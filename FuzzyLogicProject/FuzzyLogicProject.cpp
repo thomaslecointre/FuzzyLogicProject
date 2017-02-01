@@ -16,6 +16,8 @@
 #include "fuzzy\ThenMin.h"
 #include "fuzzy\ThenMult.h"
 #include "fuzzy\NotMinus1.h"
+#include "fuzzy\IsGaussian.h"
+#include "fuzzy\IsBell.h"
 #include <iostream>
 
 using namespace core;
@@ -29,13 +31,13 @@ int main()
 
 	/*
 	ValueModel<int> vm(5);
-	std::cout << vm.evaluate();
-	std::cout << vm2->evaluate();
+	std::cout << vm.evaluate() << std::endl;
+	std::cout << vm2->evaluate() << std::endl;
 	*/
 	
 	/*
 	IsTriangle<float> * it = new IsTriangle<float>(2, 4, 6);
-	std::cout << it->evaluate(vm);
+	std::cout << it->evaluate(vm) << std::endl;
 	*/
 	
 	/*
@@ -103,9 +105,16 @@ int main()
 
 	/*
 	NotMinus1<float> * nm1 = new NotMinus1<float>();
-	std::cout << nm1->evaluate(new ValueModel<float>(1));
+	std::cout << nm1->evaluate(new ValueModel<float>(1)) << std::endl;
 	*/
 
+	/*
+	IsGaussian<float> * ig = new IsGaussian<float>(1, 0);
+	std::cout << ig->evaluate(new ValueModel<float>(0)) << std::endl;
+	*/
+
+	IsBell<float> * ib = new IsBell<float>(2, 4, 6);
+	std::cout << ib->evaluate(new ValueModel<float>(6)) << std::endl;
 	return 0;
 }
 

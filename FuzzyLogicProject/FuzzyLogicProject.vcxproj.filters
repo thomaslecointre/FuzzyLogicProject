@@ -119,5 +119,11 @@
     <ClInclude Include="fuzzy\CogDefuzz.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\IsGaussian.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\IsBell.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

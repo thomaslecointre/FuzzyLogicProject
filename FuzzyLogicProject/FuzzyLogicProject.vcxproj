@@ -168,6 +168,8 @@
     <ClInclude Include="fuzzy\AndMult.h" />
     <ClInclude Include="fuzzy\CogDefuzz.h" />
     <ClInclude Include="fuzzy\Is.h" />
+    <ClInclude Include="fuzzy\IsBell.h" />
+    <ClInclude Include="fuzzy\IsGaussian.h" />
     <ClInclude Include="fuzzy\IsTrapezoid.h" />
     <ClInclude Include="fuzzy\IsTrapezoidLeft.h" />
     <ClInclude Include="fuzzy\IsTrapezoidRight.h" />
