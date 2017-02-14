@@ -160,6 +160,7 @@
     <ClInclude Include="core\UnaryExpression.h" />
     <ClInclude Include="core\UnaryExpressionModel.h" />
     <ClInclude Include="core\ValueModel.h" />
+    <ClInclude Include="evaluation\Evaluator.h" />
     <ClInclude Include="fuzzy\Agg.h" />
     <ClInclude Include="fuzzy\AggMax.h" />
     <ClInclude Include="fuzzy\AggPlus.h" />

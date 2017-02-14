@@ -19,6 +19,9 @@
     <Filter Include="Header Files\fuzzy">
       <UniqueIdentifier>{a776d4a2-2c3a-4f74-bf22-43a8fe692b9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\evaluation">
+      <UniqueIdentifier>{a92cf341-2e29-4e4c-bdb1-40c3d8ef75f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -124,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="fuzzy\IsBell.h">
       <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\Evaluator.h">
+      <Filter>Header Files\evaluation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
