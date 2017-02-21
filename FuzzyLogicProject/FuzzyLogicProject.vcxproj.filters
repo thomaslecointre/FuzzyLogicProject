@@ -131,5 +131,35 @@
     <ClInclude Include="evaluation\Evaluator.h">
       <Filter>Header Files\evaluation</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\FuzzyIncludes.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="core\CoreIncludes.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\EvaluationIncludes.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\BellEvaluator.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\GaussianEvaluator.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\TrapezoidLeftEvaluator.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\TrapezoidEvaluator.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\TrapezoidRightEvaluator.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\TriangleEvaluator.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
+    <ClInclude Include="evaluation\Shape.h">
+      <Filter>Header Files\evaluation</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

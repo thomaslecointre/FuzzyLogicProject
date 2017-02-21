@@ -2,26 +2,15 @@
 //
 
 #include "stdafx.h"
-#include "core/ValueModel.h"
-#include "fuzzy/IsTriangle.h"
-#include "fuzzy/IsTrapezoidLeft.h"
-#include "fuzzy\IsTrapezoidRight.h"
-#include "fuzzy\IsTrapezoid.h"
-#include "fuzzy\AggMax.h"
-#include "fuzzy\AggPlus.h"
-#include "fuzzy\AndMin.h"
-#include "fuzzy\AndMult.h"
-#include "fuzzy\OrMax.h"
-#include "fuzzy\OrPlus.h"
-#include "fuzzy\ThenMin.h"
-#include "fuzzy\ThenMult.h"
-#include "fuzzy\NotMinus1.h"
-#include "fuzzy\IsGaussian.h"
-#include "fuzzy\IsBell.h"
+#include "core/CoreIncludes.h"
+#include "evaluation/EvaluationIncludes.h"
+#include "fuzzy/FuzzyIncludes.h"
+
 #include <iostream>
 
 using namespace core;
 using namespace fuzzy;
+using namespace evaluation;
 
 int main()
 {
@@ -113,10 +102,10 @@ int main()
 	std::cout << ig->evaluate(new ValueModel<float>(0)) << std::endl;
 	*/
 
-	// Mieux
 	ValueModel<float> v(6);
 	IsBell<float> ib(2, 4, 6);
-	std::cout << ib.evaluate(&v) << std::endl;
+	// std::cout << ib.evaluate(&v) << std::endl;
+	BellEvaluator<float> be(ib);
 	return 0;
 }
 
