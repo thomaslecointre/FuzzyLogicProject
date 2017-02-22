@@ -10,27 +10,27 @@ using namespace fuzzy;
 
 namespace evaluation {
 	template <class T>
-	class TriangleEvaluator : public Evaluator<T>
+	class TriangleEvaluator : public Evaluator<T>::EvalFunc
 	{
 	public:
-		TriangleEvaluator(IsTriangle &);
+		TriangleEvaluator(IsTriangle<T> &);
 		virtual ~TriangleEvaluator() {};
 
-		T EvalFunc<T>::operator () (const T&) const;
+		T operator () (const T&) const;
 	private:
-		IsTriangle & tri;
+		IsTriangle<T> & tri;
 	};
 
 	template <class T>
-	TriangleEvaluator<T>::TriangleEvaluator(IsTriangle & _tri) :
+	TriangleEvaluator<T>::TriangleEvaluator(IsTriangle<T> & _tri) :
 		tri(_tri)
 	{
 	}
 
 	template <class T>
-	T TriangleEvaluator<T>::EvalFunc<T>::operator() (const T& v) const
+	T TriangleEvaluator<T>::operator() (const T& v) const
 	{
-		return tri.evaluate(ValueModel<T>(v));
+		return tri.evaluate(&ValueModel<T>(v));
 	}
 }
 #endif

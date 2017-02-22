@@ -10,13 +10,13 @@ using namespace fuzzy;
 
 namespace evaluation {
 	template <class T>
-	class BellEvaluator : public Evaluator<T>
+	class BellEvaluator : public Evaluator<T>::EvalFunc
 	{
 	public:
 		BellEvaluator(IsBell<T> &);
 		virtual ~BellEvaluator() {};
 
-		T BellEvaluator<T>::EvalFunc<T>::operator () (const T&) const;
+		T operator () (const T&) const;
 	private:
 		IsBell<T> & bell;
 	};
@@ -28,9 +28,9 @@ namespace evaluation {
 	}
 
 	template <class T>
-	T BellEvaluator<T>::EvalFunc<T>::operator() (const T& v) const
+	T BellEvaluator<T>::operator () (const T& v) const
 	{
-		return bell.evaluate(ValueModel<T>(v));
+		return bell.evaluate(&ValueModel<T>(v));
 	}
 }
 

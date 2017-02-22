@@ -5,3 +5,5 @@
 #include "TrapezoidLeftEvaluator.h"
 #include "TrapezoidRightEvaluator.h"
 #include "TriangleEvaluator.h"
+
+#include "Shape.h"

@@ -10,28 +10,28 @@ using namespace fuzzy;
 
 namespace evaluation {
 	template <class T>
-	class TrapezoidEvaluator : public Evaluator<T>
+	class TrapezoidEvaluator : public Evaluator<T>::EvalFunc
 	{
 	public:
-		TrapezoidEvaluator(IsTrapezoid &);
+		TrapezoidEvaluator(IsTrapezoid<T> &);
 		virtual ~TrapezoidEvaluator() {};
 
-		T EvalFunc<T>::operator () (const T&) const;
+		T operator () (const T&) const;
 	private:
-		IsTrapezoid & trap;
+		IsTrapezoid<T> & trap;
 	};
 
 	template <class T>
-	TrapezoidEvaluator<T>::TrapezoidEvaluator<T>(IsTrapezoid & _trap) :
+	TrapezoidEvaluator<T>::TrapezoidEvaluator(IsTrapezoid<T> & _trap) :
 		trap(_trap)
 	{
 
 	}
 
 	template <class T>
-	T TrapezoidEvaluator<T>::EvalFunc<T>::operator () (const T& v) const
+	T TrapezoidEvaluator<T>::operator () (const T& v) const
 	{
-		return trap.evaluate(ValueModel<T>(v));
+		return trap.evaluate(&ValueModel<T>(v));
 	}
 }
 #endif

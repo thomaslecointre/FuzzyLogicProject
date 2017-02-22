@@ -103,9 +103,38 @@ int main()
 	*/
 
 	ValueModel<float> v(6);
+
 	IsBell<float> ib(2, 4, 6);
-	// std::cout << ib.evaluate(&v) << std::endl;
 	BellEvaluator<float> be(ib);
+
+	IsGaussian<float> ig(1, 0);
+	GaussianEvaluator<float> ge(ig);
+
+	IsTrapezoid<float> trap(10, 20, 30, 40);
+	TrapezoidEvaluator<float> te(trap);
+
+	IsTrapezoidLeft<float> trapL(10, 30);
+	TrapezoidLeftEvaluator<float> tle(trapL);
+
+	IsTrapezoidRight<float> trapR(75, 90);
+	TrapezoidRightEvaluator<float> tre(trapR);
+
+	IsTriangle<float> it(2, 4, 6);
+	TriangleEvaluator<float> trie(it);
+	
+	std::cout << "Bell" << std::endl;
+	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, be));
+	std::cout << "Gaussian curve" << std::endl;
+	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, ge));
+	std::cout << "Trapezoid" << std::endl;
+	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, te));
+	std::cout << "Trapezoid Left" << std::endl;
+	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, tle));
+	std::cout << "Trapezoid Right" << std::endl;
+	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, tre));
+	std::cout << "Triangle" << std::endl;
+	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, trie));
+
 	return 0;
 }
 

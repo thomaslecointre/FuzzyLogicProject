@@ -10,27 +10,27 @@ using namespace fuzzy;
 
 namespace evaluation {
 	template <class T>
-	class GaussianEvaluator : public Evaluator<T>
+	class GaussianEvaluator : public Evaluator<T>::EvalFunc
 	{
 	public:
-		GaussianEvaluator(IsGaussian &);
+		GaussianEvaluator(IsGaussian<T> &);
 		virtual ~GaussianEvaluator() {};
 
-		T EvalFunc<T>::operator () (const T&) const;
+		T operator () (const T&) const;
 	private:
-		IsGaussian & gauss;
+		IsGaussian<T> & gauss;
 	};
 
 	template <class T>
-	GaussianEvaluator<T>::GaussianEvaluator(IsGaussian & _gauss):
+	GaussianEvaluator<T>::GaussianEvaluator(IsGaussian<T> & _gauss):
 		gauss(_gauss)
 	{
 	}
 
 	template <class T>
-	T GaussianEvaluator<T>::EvalFunc<T>::operator () (const T& v) const
+	T GaussianEvaluator<T>::operator () (const T& v) const
 	{
-		return gauss.evaluate(ValueModel<T>(v));
+		return gauss.evaluate(&ValueModel<T>(v));
 	}
 }
 

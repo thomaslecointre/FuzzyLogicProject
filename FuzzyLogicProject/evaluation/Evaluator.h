@@ -7,28 +7,23 @@
 using namespace std;
 
 namespace evaluation {
+
 	template <class T>
 	class Evaluator
 	{
 	public:
-		
-		template <class T>
 		class EvalFunc
 		{
 		public:
 			virtual T operator () (const T&) const = 0;
 		};
 
-		static Shape BuildShape(const T& min, const T& max, const T& step);
-		static ostream& PrintShape(ostream&)
-	
-	private:
-		Shape & s;
-		EvalFunc & f;
+		static Shape<T> BuildShape(const T& min, const T& max, const T& step, EvalFunc & f);
+		static ostream& PrintShape(ostream&, Shape<T> & s);
 	};
 
 	template <class T>
-	Shape Evaluator<T>::BuildShape(const T& min, const T& max, const T& step)
+	Shape<T> Evaluator<T>::BuildShape(const T& min, const T& max, const T& step, EvalFunc & f)
 	{
 		vector<T> x, y;
 		for (T i = min; i <= max; i += step)
@@ -36,23 +31,24 @@ namespace evaluation {
 			y.push_back(f(i));
 			x.push_back(i);
 		}
-		return Shape(x, y);
+		return Shape<T>(x, y);
 	}
 
 	template <class T>
-	ostream& Evaluator<T>::PrintShape(ostream& os)
+	ostream& Evaluator<T>::PrintShape(ostream& os, Shape<T> & s)
 	{
 		os << '[';
-		typename vector<T>::const_iterator it = s.first.begin();
-		for (; it != s.first.end(); ++it)
+		vector<T>::const_iterator it = s.fBegin();
+		for (; it != s.fEnd(); ++it)
 			os << *it << ' ';
 		os << ']';
 		os << endl;
 		os << '[';
-		it = s.second.begin();
-		for (; it != s.second.end(); ++it)
+		it = s.sBegin();
+		for (; it != s.sEnd(); ++it)
 			os << *it << ' ';
 		os << ']';
+		os << std::endl;
 		return os;
 	}
 }
