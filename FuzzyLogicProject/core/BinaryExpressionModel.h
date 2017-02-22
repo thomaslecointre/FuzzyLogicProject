@@ -13,7 +13,7 @@ namespace core {
 		T evaluate() const;
 		T evaluate(Expression<T> * l, Expression<T> * r) const;
 	private:
-		BinaryExpression * operator;
+		BinaryExpression * _operator;
 		Expression * left;
 		Expression * right;
 	};
@@ -26,7 +26,7 @@ namespace core {
 	template<class T>
 	BinaryExpressionModel<T>::~BinaryExpressionModel()
 	{
-		delete operator;
+		delete _operator;
 		delete left;
 		delete right;
 	}
@@ -42,7 +42,7 @@ namespace core {
 	T BinaryExpressionModel<T>::evaluate(Expression<T> * l, Expression<T> * r) const
 	{
 		if (operator != null)
-			return operator.evaluate(l, r);
+			return _operator.evaluate(l, r);
 	}
 }
 #endif
