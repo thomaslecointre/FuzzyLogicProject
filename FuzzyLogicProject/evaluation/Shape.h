@@ -13,53 +13,53 @@ namespace evaluation {
 		Shape(const vector<T> &, const vector<T> &);
 		virtual ~Shape() {};
 
-		typename vector<T>::const_iterator fBegin() const;
-		typename vector<T>::const_iterator fEnd() const;
-		typename vector<T>::const_iterator sBegin() const;
-		typename vector<T>::const_iterator sEnd() const;
+		typename vector<T>::const_iterator xBegin() const;
+		typename vector<T>::const_iterator xEnd() const;
+		typename vector<T>::const_iterator yBegin() const;
+		typename vector<T>::const_iterator yEnd() const;
 
 		const size_t size() const;
 
 	private:
-		const vector<T> first;
-		const vector<T> second;
+		const vector<T> x;
+		const vector<T> y;
 	};
 
 	template <class T>
-	Shape<T>::Shape(const vector<T> & _first, const vector<T> & _second) :
-		first(_first), second(_second)
+	Shape<T>::Shape(const vector<T> & _x, const vector<T> & _y) :
+		x(_x), y(_y)
 	{
 
 	}
 
 	template <class T>
-	typename vector<T>::const_iterator Shape<T>::fBegin() const
+	typename vector<T>::const_iterator Shape<T>::xBegin() const
 	{
-		return first.begin();
+		return x.begin();
 	}
 
 	template <class T>
-	typename vector<T>::const_iterator Shape<T>::fEnd() const
+	typename vector<T>::const_iterator Shape<T>::xEnd() const
 	{
-		return first.end();
+		return x.end();
 	}
 
 	template <class T>
-	typename vector<T>::const_iterator Shape<T>::sBegin() const
+	typename vector<T>::const_iterator Shape<T>::yBegin() const
 	{
-		return second.begin();
+		return y.begin();
 	}
 
 	template <class T>
-	typename vector<T>::const_iterator Shape<T>::sEnd() const
+	typename vector<T>::const_iterator Shape<T>::yEnd() const
 	{
-		return second.end();
+		return y.end();
 	}
 
 	template <class T>
 	const size_t Shape<T>::size() const
 	{
-		return first.size();
+		return x.size();
 	}
 }
 

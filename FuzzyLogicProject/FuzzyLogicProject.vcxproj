@@ -164,7 +164,9 @@
     <ClInclude Include="evaluation\BellEvaluator.h" />
     <ClInclude Include="evaluation\EvaluationIncludes.h" />
     <ClInclude Include="evaluation\Evaluator.h" />
+    <ClInclude Include="evaluation\ExpressionEvaluator.h" />
     <ClInclude Include="evaluation\GaussianEvaluator.h" />
+    <ClInclude Include="evaluation\MamdaniDefuzz.h" />
     <ClInclude Include="evaluation\Shape.h" />
     <ClInclude Include="evaluation\TrapezoidLeftEvaluator.h" />
     <ClInclude Include="evaluation\TrapezoidEvaluator.h" />
@@ -185,7 +187,6 @@
     <ClInclude Include="fuzzy\IsTrapezoidLeft.h" />
     <ClInclude Include="fuzzy\IsTrapezoidRight.h" />
     <ClInclude Include="fuzzy\IsTriangle.h" />
-    <ClInclude Include="fuzzy\MamdaniDefuzz.h" />
     <ClInclude Include="fuzzy\Not.h" />
     <ClInclude Include="fuzzy\NotMinus1.h" />
     <ClInclude Include="fuzzy\Or.h" />

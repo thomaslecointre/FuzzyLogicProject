@@ -38,14 +38,14 @@ namespace evaluation {
 	ostream& Evaluator<T>::PrintShape(ostream& os, Shape<T> & s)
 	{
 		os << '[';
-		vector<T>::const_iterator it = s.fBegin();
-		for (; it != s.fEnd(); ++it)
+		vector<T>::const_iterator it = s.xBegin();
+		for (; it != s.xEnd(); ++it)
 			os << *it << ' ';
 		os << ']';
 		os << endl;
 		os << '[';
-		it = s.sBegin();
-		for (; it != s.sEnd(); ++it)
+		it = s.yBegin();
+		for (; it != s.yEnd(); ++it)
 			os << *it << ' ';
 		os << ']';
 		os << std::endl;
