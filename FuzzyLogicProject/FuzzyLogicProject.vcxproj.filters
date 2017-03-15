@@ -161,5 +161,11 @@
     <ClInclude Include="evaluation\Shape.h">
       <Filter>Header Files\evaluation</Filter>
     </ClInclude>
+    <ClInclude Include="core\ExpressionFactory.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\FuzzyFactory.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
