@@ -19,6 +19,7 @@ namespace evaluation {
 		};
 
 		static Shape<T> BuildShape(const T& min, const T& max, const T& step, EvalFunc & f);
+		static Shape<T> BuildShape(const T& min, const T& max, const T& step, Expression<T> e);
 		static ostream& PrintShape(ostream&, Shape<T> & s);
 	};
 
@@ -29,6 +30,18 @@ namespace evaluation {
 		for (T i = min; i <= max; i += step)
 		{
 			y.push_back(f(i));
+			x.push_back(i);
+		}
+		return Shape<T>(x, y);
+	}
+
+	template<class T>
+	Shape<T> Evaluator<T>::BuildShape(const T & min, const T & max, const T & step, Expression<T> e)
+	{
+		vector<T> x, y;
+		for (T i = min; i <= max; i += step)
+		{
+			y.push_back(e->evaluate(&ValueModel(i));
 			x.push_back(i);
 		}
 		return Shape<T>(x, y);

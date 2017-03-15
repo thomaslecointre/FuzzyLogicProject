@@ -8,18 +8,25 @@ namespace core {
 	{
 	public:
 		BinaryExpressionModel();
+		BinaryExpressionModel(BinaryExpression<T> * __operator, Expression<T> * _left, Expression<T> * _right);
 		~BinaryExpressionModel();
 
 		T evaluate() const;
 		T evaluate(Expression<T> * l, Expression<T> * r) const;
 	private:
-		BinaryExpression * _operator;
-		Expression * left;
-		Expression * right;
+		BinaryExpression<T> * _operator;
+		Expression<T> * left;
+		Expression<T> * right;
 	};
 
 	template<class T>
 	BinaryExpressionModel<T>::BinaryExpressionModel()
+	{
+	}
+
+	template<class T>
+	BinaryExpressionModel<T>::BinaryExpressionModel(BinaryExpression<T>* __operator, Expression<T>* _left, Expression<T>* _right) :
+		_operator(__operator), left(_left), right(_right)
 	{
 	}
 
