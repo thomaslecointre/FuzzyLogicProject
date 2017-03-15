@@ -158,6 +158,7 @@
     <ClInclude Include="core\BinaryExpressionModel.h" />
     <ClInclude Include="core\CoreIncludes.h" />
     <ClInclude Include="core\Expression.h" />
+    <ClInclude Include="core\ExpressionFactory.h" />
     <ClInclude Include="core\UnaryExpression.h" />
     <ClInclude Include="core\UnaryExpressionModel.h" />
     <ClInclude Include="core\ValueModel.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="fuzzy\AndMin.h" />
     <ClInclude Include="fuzzy\AndMult.h" />
     <ClInclude Include="fuzzy\CogDefuzz.h" />
+    <ClInclude Include="fuzzy\FuzzyFactory.h" />
     <ClInclude Include="fuzzy\FuzzyIncludes.h" />
     <ClInclude Include="fuzzy\Is.h" />
     <ClInclude Include="fuzzy\IsBell.h" />
