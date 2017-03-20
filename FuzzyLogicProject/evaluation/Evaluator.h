@@ -41,7 +41,7 @@ namespace evaluation {
 		vector<T> x, y;
 		for (T i = min; i <= max; i += step)
 		{
-			y.push_back(e->evaluate(&ValueModel(i)));
+			y.push_back(e->evaluate(&ValueModel(i));
 			x.push_back(i);
 		}
 		return Shape<T>(x, y);
