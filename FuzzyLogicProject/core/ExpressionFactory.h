@@ -12,7 +12,7 @@ using namespace std;
 
 namespace core {
 	template <class T>
-	class 
+	class ExpressionFactory : public Expression<T>
 	{
 	public:
 		ExpressionFactory();
@@ -26,10 +26,9 @@ namespace core {
 		set<Expression<T> *> expressions;
 	};
 
-	template <class T>
-	ExpressionFactory<T>::ExpressionFactory() :
+	template<class T>
+	ExpressionFactory<T>::ExpressionFactory()
 	{
-
 	}
 
 	template <class T>
@@ -40,16 +39,17 @@ namespace core {
 	}
 
 	template <class T>
-	Expression<T> ExpressionFactory<T>::newUnary(UnaryExpression<T> ope, Expression<T> o)
+	Expression<T> ExpressionFactory<T>::newUnary(UnaryExpression<T> * ope, Expression<T> * o)
 	{
-		return new UnaryExpressionModel(ope, e);
+		return hold(UnaryExpressionModel(ope, e));
 	}
 
 	template <class T>
-	 Expression<T> ExpressionFactory<T>::newUnary(BinaryExpression<T> ope, Expression<T> l, Expression<T> r)
+	 Expression<T> ExpressionFactory<T>::newBinary(BinaryExpression<T> * ope, Expression<T> * l, Expression<T> * r)
 	{
-		 return new BinaryExpressionModel(ope, l, r);
+		 return hold(BinaryExpressionModel(ope, l, r));
 	}
+
 }
 
 
