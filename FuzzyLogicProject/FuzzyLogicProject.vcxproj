@@ -156,11 +156,13 @@
   <ItemGroup>
     <ClInclude Include="core\BinaryExpression.h" />
     <ClInclude Include="core\BinaryExpressionModel.h" />
+    <ClInclude Include="core\BinaryShadowExpression.h" />
     <ClInclude Include="core\CoreIncludes.h" />
     <ClInclude Include="core\Expression.h" />
     <ClInclude Include="core\ExpressionFactory.h" />
     <ClInclude Include="core\UnaryExpression.h" />
     <ClInclude Include="core\UnaryExpressionModel.h" />
+    <ClInclude Include="core\UnaryShadowExpression.h" />
     <ClInclude Include="core\ValueModel.h" />
     <ClInclude Include="evaluation\BellEvaluator.h" />
     <ClInclude Include="evaluation\EvaluationIncludes.h" />
