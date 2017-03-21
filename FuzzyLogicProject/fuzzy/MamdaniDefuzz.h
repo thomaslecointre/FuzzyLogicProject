@@ -37,7 +37,7 @@ namespace fuzzy {
 	template <class T>
 	MamdaniDefuzz<T>::MamdaniDefuzz(T _min, T _max, T _step) :
 		min(_min), max(_max), step(_step) 
-	{b +
+	{
 
 	}
 
