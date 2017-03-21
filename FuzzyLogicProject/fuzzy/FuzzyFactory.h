@@ -23,6 +23,13 @@ namespace fuzzy {
 		Expression<T> * newAgg(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newNot(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newIs(Expression<T> * l, Expression<T> * r);
+		void changeAnd(And<T> *);
+		void changeOr(Or<T> *);
+		void changeThen(Then<T> *);
+		void changeDefuzz(MamdaniDefuzz<T> *);
+		void changeAgg(Agg<T> *);
+		void changeNot(Not<T> *);
+		void changeIs(Is<T> *);
 
 	private:
 		Not<T> * opNot;
@@ -50,10 +57,12 @@ namespace fuzzy {
 
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newAnd(Expression<T>* l, Expression<T>* r)
-	{
+	{/*
 		BinaryExpressionModel bem(opAnd, l, r);
 		BinaryShadowExpression<T> bse(bem);
-		return &bse;
+		return &bse;*/
+		return new BinaryShadowExpression(BinaryExpressionModel bem(opAnd, l, r));
+
 	}
 
 	template<class T>
@@ -103,6 +112,41 @@ namespace fuzzy {
 		BinaryExpressionModel bem(opIs, l, r);
 		BinaryShadowExpression<T> bse(bem);
 		return &bse;
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeAnd(And<T>*)
+	{
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeOr(Or<T>*)
+	{
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeThen(Then<T>*)
+	{
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeDefuzz(MamdaniDefuzz<T>*)
+	{
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeAgg(Agg<T>*)
+	{
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeNot(Not<T>*)
+	{
+	}
+
+	template<class T>
+	void FuzzyFactory<T>::changeIs(Is<T>*)
+	{
 	}
 
 
