@@ -62,7 +62,6 @@ namespace fuzzy {
 		BinaryShadowExpression<T> bse(bem);
 		return &bse;*/
 		return new BinaryShadowExpression(BinaryExpressionModel bem(opAnd, l, r));
-
 	}
 
 	template<class T>
