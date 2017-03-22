@@ -182,6 +182,7 @@
     <ClInclude Include="fuzzy\CogDefuzz.h" />
     <ClInclude Include="fuzzy\FuzzyFactory.h" />
     <ClInclude Include="fuzzy\FuzzyIncludes.h" />
+    <ClInclude Include="fuzzy\GenericOperatorIncludes.h" />
     <ClInclude Include="fuzzy\Is.h" />
     <ClInclude Include="fuzzy\IsBell.h" />
     <ClInclude Include="fuzzy\IsGaussian.h" />

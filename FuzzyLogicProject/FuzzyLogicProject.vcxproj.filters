@@ -173,5 +173,8 @@
     <ClInclude Include="core\BinaryShadowExpression.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="fuzzy\GenericOperatorIncludes.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

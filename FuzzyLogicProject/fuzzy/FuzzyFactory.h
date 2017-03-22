@@ -1,11 +1,12 @@
 #ifndef FUZZYFACTORY_H
-#define FUZZYFACTORY_HFu
-#include "../core/ExpressionFactory.h"
-#include "../core/Expression.h"
-#include "../core/BinaryShadowExpression.h"
+#define FUZZYFACTORY_H
+
+#include "../core/CoreIncludes.h"
 #include "FuzzyIncludes.h"
+#include "GenericOperatorIncludes.h"
 
 using namespace std;
+using namespace core;
 
 namespace fuzzy {
 	template <class T>
@@ -13,7 +14,7 @@ namespace fuzzy {
 	{
 	public:
 		FuzzyFactory();
-		FuzzyFactory(Not<T> * _opNot, And<T> * _opAnd, Or<T> * _opOr, Then<T> * _opThen, MamdaniDefuzz<T> * _opDefuzz, Agg<T> * _opAgg, Is<T> * _opIs);
+		FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg, Is<T> * opIs);
 		virtual ~FuzzyFactory() {};
 
 		Expression<T> * newAnd(Expression<T> * l, Expression<T> * r);
@@ -32,14 +33,13 @@ namespace fuzzy {
 		void changeIs(Is<T> *);
 
 	private:
-		Not<T> * opNot;
-		And<T> * opAnd;
-		Or<T> * opOr; 
-		Then<T> * opThen;
-		MamdaniDefuzz<T> * opDefuzz;
-		Agg<T> * opAgg;
-		Is<T> * opIs
-		
+		UnaryShadowExpression<T> * not;
+		UnaryShadowExpression<T> * is
+		BinaryShadowExpression<T> * and;
+		BinaryShadowExpression<T> * or;
+		BinaryShadowExpression<T> * then;
+		BinaryShadowExpression<T> * defuzz;
+		BinaryShadowExpression<T> * agg;
 	};
 
 	template <class T>
@@ -49,8 +49,14 @@ namespace fuzzy {
 	}
 
 	template <class T>
-	FuzzyFactory<T>::FuzzyFactory(Not<T> * _opNot, And<T> * _opAnd, Or<T> * _opOr, Then<T> * _opThen, MamdaniDefuzz<T> * _opDefuzz, Agg<T> * _opAgg, Is<T> * _opIs) :
-		opNot(_opNot), opAnd(_opAnd), opOr(_opOr), opThen(_opThen), opDefuzz(_opDefuzz), opAgg(_opAgg), opIs(_opIs)
+	FuzzyFactory<T>::FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg, Is<T> * opIs) :
+		not(new UnaryShadowExpression<T>(opNot)), 
+		and(new BinaryShadowExpression<T>(opAnd)), 
+		or(new BinaryShadowExpression<T>(opOr)), 
+		then(new BinaryShadowExpression<T>(opThen)), 
+		defuzz(new BinaryShadowExpression<T>(opDefuzz)), 
+		agg(new BinaryShadowExpression<T>(opAgg)), 
+		is(new UnaryShadowExpression<T>(opIs))
 	{
 
 	}
