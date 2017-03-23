@@ -167,5 +167,14 @@
     <ClInclude Include="fuzzy\FuzzyFactory.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
+    <ClInclude Include="core\UnaryShadowExpression.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\BinaryShadowExpression.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\GenericOperatorIncludes.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

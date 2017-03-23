@@ -57,7 +57,7 @@ namespace fuzzy {
 	template <class T>
 	Shape<T> MamdaniDefuzz<T>::buildShape(T _min, T _max, T _step, Expression<T> * l, Expression<T> * r)
 	{
-		BinaryExpressionModel<T> bem(&ThenMin<T>(), l, r);
+		BinaryShadowExpression<T> bem(&ThenMin<T>(), l, r);
 		return Evaluator<T>::BuildShape(_min, _max, _step, bem);
 	}
 	
