@@ -11,6 +11,7 @@ namespace evaluation {
 	{
 	public:
 		Shape(const vector<T> &, const vector<T> &);
+		Shape(const Shape<T> &);
 		virtual ~Shape() {};
 
 		typename vector<T>::const_iterator fBegin() const;
@@ -30,6 +31,12 @@ namespace evaluation {
 		first(_first), second(_second)
 	{
 
+	}
+
+	template <class T>
+	Shape<T>::Shape(const Shape<T> & shape):
+		first(shape.first), second(shape.second)
+	{
 	}
 
 	template <class T>

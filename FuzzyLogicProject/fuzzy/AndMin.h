@@ -1,9 +1,11 @@
 #ifndef ANDMIN_H
 #define ANDMIN_H
+
 #include "../core/BinaryExpression.h"
 #include "And.h"
 
 using namespace core;
+
 namespace fuzzy {
 	template <class T>
 	class AndMin : public And<T> 
@@ -12,8 +14,6 @@ namespace fuzzy {
 		AndMin();
 		~AndMin();
 		T evaluate(Expression<T> *l, Expression<T> *r) const;
-	private:
-
 	};
 
 	template<class T>

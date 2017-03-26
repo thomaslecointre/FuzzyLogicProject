@@ -1,80 +1,69 @@
 #ifndef MAMDANIDEFUZZ_H
 #define MAMDANIDEFUZZ_H
-#include "../core/BinaryExpression.h"
-#include "../core/BinaryExpressionModel.h"
-#include "../evaluation/Evaluator.h"
+
+#include "../core/CoreIncludes.h"
+#include "../evaluation/EvaluationIncludes.h"
 #include "../fuzzy/ThenMin.h"
 
 using namespace core;
+using namespace evaluation;
+
 namespace fuzzy {
 	template <class T>
-	class MamdaniDefuzz : public BinaryExpression<T> {
+	class MamdaniDefuzz : public BinaryExpression<T> 
+	{
 	public:
 		MamdaniDefuzz();
-		MamdaniDefuzz(T _min, T _max, T _step);
-		~MamdaniDefuzz();
+		MamdaniDefuzz(const T & _min, const T & _max, const T & _step);
+		virtual ~MamdaniDefuzz() {};
 		
-		T evaluate(Expression<T> *l, Expression<T> *r);
-		
-		Shape<T> buildShape(T _min, T _max, T _step, Expression<T> * l, Expression<T> * r);
+		virtual T evaluate(Expression<T> * l, Expression<T> * r) const = 0;
 
-		void setMin(T _min);
-		void setMax(T _max);
-		void setStep(T _step);
-		
-		virtual Defuzz() = 0;
+		virtual Shape<T> * buildShape(const T & _min, const T & _max, const T & _step, Expression<T> * l, Expression<T> * r) const;
+
+		virtual void setMin(const T & _min);
+		virtual void setMax(const T & _max);
+		virtual void setStep(const T & _step);
 	
-	private:
+	protected:
 		T min, max, step;
 	};
 
-	template<class T>
+	template <class T>
 	MamdaniDefuzz<T>::MamdaniDefuzz() 
 	{
 
 	}
 
 	template <class T>
-	MamdaniDefuzz<T>::MamdaniDefuzz(T _min, T _max, T _step) :
+	MamdaniDefuzz<T>::MamdaniDefuzz(const T & _min, const T & _max, const T & _step) :
 		min(_min), max(_max), step(_step) 
 	{
 
 	}
 
-	template<class T>
-	MamdaniDefuzz<T>::~MamdaniDefuzz() 
-	{
-
-	}
-
-	template<class T>
-	T MamdaniDefuzz<T>::evaluate(Expression<T> *l, Expression<T> *r) 
-	{
-		return;
-	}
-
 	// l = ValueModel, r = IsTriangle (?)
 	template <class T>
-	Shape<T> MamdaniDefuzz<T>::buildShape(T _min, T _max, T _step, Expression<T> * l, Expression<T> * r)
+	Shape<T> * MamdaniDefuzz<T>::buildShape(const T & _min, const T & _max, const T & _step, Expression<T> * l, Expression<T> * r) const
 	{
-		BinaryShadowExpression<T> bem(&ThenMin<T>(), l, r);
-		return Evaluator<T>::BuildShape(_min, _max, _step, bem);
+		BinaryExpressionModel<T> bem(&ThenMin<T>(), l, r);
+		return Evaluator<T>::buildShape(_min, _max, _step, &bem);
 	}
 	
 	template <class T>
-	void MamdaniDefuzz<T>::setMin(T _min)
+	void MamdaniDefuzz<T>::setMin(const T & _min)
 	{
 		min = _min;
 	}
 
 	template <class T>
-	void MamdaniDefuzz<T>::setMax(T _max)
+	void MamdaniDefuzz<T>::setMax(const T & _max)
 	{
 		max = _max;
 	}
 
 	template <class T>
-	void MamdaniDefuzz<T>::setStep(T _step)
+	void MamdaniDefuzz<T>::setStep(const T & _step)
 	{
 		step = _step;
 	}

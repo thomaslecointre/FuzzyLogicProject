@@ -5,6 +5,7 @@
 #include "core/CoreIncludes.h"
 #include "evaluation/EvaluationIncludes.h"
 #include "fuzzy/FuzzyIncludes.h"
+#include "fuzzy\FuzzyFactory.h"
 
 #include <iostream>
 
@@ -102,6 +103,7 @@ int main()
 	std::cout << ig->evaluate(new ValueModel<float>(0)) << std::endl;
 	*/
 
+	/*
 	ValueModel<float> v(6);
 
 	IsBell<float> ib(2, 4, 6);
@@ -134,7 +136,21 @@ int main()
 	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, tre));
 	std::cout << "Triangle" << std::endl;
 	Evaluator<float>::PrintShape(std::cout, Evaluator<float>::BuildShape(0, 100, 1, trie));
+	*/
+	
+	// operators 
+	NotMinus1<float> opNot;
+	AndMin<float> opAnd;
+	OrMax<float> opOr;
+	ThenMin<float> opThen;
+	CogDefuzz<float> opDefuzz;
+	AggMax<float> opAgg;
+	IsTriangle<float> opIs;
 
+	// fuzzy expression factory
+	FuzzyFactory<float> f(&opNot, &opAnd, &opOr, &opThen, &opDefuzz, &opAgg, &opIs);
+
+	
 	return 0;
 }
 

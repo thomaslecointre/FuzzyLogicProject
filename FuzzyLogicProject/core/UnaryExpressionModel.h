@@ -1,7 +1,9 @@
 #ifndef UNARY_EXPRESSION_MODEL_H
 #define UNARY_EXPRESSION_MODEL_H
+
 #include "UnaryExpression.h"
 #include "Expression.h"
+
 namespace core {
 	template <class T>
 	class UnaryExpressionModel : public UnaryExpression<T>, public Expression<T>

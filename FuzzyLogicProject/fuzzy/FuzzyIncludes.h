@@ -15,10 +15,10 @@
 
 #include "OrMax.h"
 #include "OrPlus.h"
+
 #include "ThenMin.h"
 #include "ThenMult.h"
 
 #include "MamdaniDefuzz.h"
 #include "CogDefuzz.h"
 
-#include "FuzzyFactory.h"

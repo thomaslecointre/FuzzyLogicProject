@@ -1,8 +1,11 @@
 #ifndef NOT_MINUS_1_H
 #define NOT_MINUS_1_H
+
 #include "../core/Expression.h"
 #include "Not.h"
+
 using namespace core;
+
 namespace fuzzy {
 	template <class T>
 	class NotMinus1 : public Not<T>

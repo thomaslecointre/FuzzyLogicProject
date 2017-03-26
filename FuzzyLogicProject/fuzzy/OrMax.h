@@ -1,9 +1,11 @@
 #ifndef ORMAX_H
 #define ORMAX_H
+
 #include "../core/BinaryExpression.h"
 #include "Or.h"
 
 using namespace core;
+
 namespace fuzzy {
 	template <class T>
 	class OrMax : public Or<T>

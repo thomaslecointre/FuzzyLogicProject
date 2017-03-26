@@ -1,6 +1,8 @@
 #ifndef UNARY_SHADOW_EXPRESSION_H
 #define UNARY_SHADOW_EXPRESSION_H
+
 #include "UnaryExpression.h"
+#include "Expression.h"
 
 namespace core {
 	template <class T>
@@ -9,10 +11,11 @@ namespace core {
 	public:
 		UnaryShadowExpression();
 		UnaryShadowExpression(UnaryExpression<T> * _target);
-		virtual ~UnaryShadowExpression() {};
+		virtual ~UnaryShadowExpression();
 
-		T evaluate(Expression<T> * o);
+		virtual T evaluate(Expression<T> * o) const;
 
+		void setTarget(Expression<T> * _target);
 	private:
 		UnaryExpression<T> * target;
 	};
@@ -27,13 +30,25 @@ namespace core {
 		target(_target)
 	{
 	}
+	
+	template <class T>
+	UnaryShadowExpression<T>::~UnaryShadowExpression()
+	{
+		delete target;
+	}
 
 	template <class T>
-	T UnaryShadowExpression<T>::evaluate(Expression<T> * o)
+	T UnaryShadowExpression<T>::evaluate(Expression<T> * o) const
 	{
-		if (target != null)
+		if (target != NULL)
 			return target->evaluate(o);
-		return null;
+		return NULL;
+	}
+
+	template <class T>
+	void UnaryShadowExpression<T>::setTarget(Expression<T> * _target)
+	{
+		target = _target;
 	}
 }
 

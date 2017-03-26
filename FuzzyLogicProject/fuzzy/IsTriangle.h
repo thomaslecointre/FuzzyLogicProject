@@ -1,8 +1,11 @@
 #ifndef IS_TRIANGLE_H
 #define IS_TRIANGLE_H
+
 #include "../core/Expression.h"
 #include "Is.h"
+
 using namespace core;
+
 namespace fuzzy {
 	template <class T>
 	class IsTriangle : public Is<T>

@@ -1,9 +1,11 @@
 #ifndef AGGMAX_H
 #define AGGMAX_H
+
 #include "../core/BinaryExpression.h"
 #include "Agg.h"
 
 using namespace core;
+
 namespace fuzzy {
 	template <class T>
 	class AggMax : public Agg<T>

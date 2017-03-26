@@ -41,15 +41,15 @@ namespace core {
 	template<class T>
 	T BinaryExpressionModel<T>::evaluate() const
 	{
-		if (left != null && right != null)
+		if (left != NULL && right != NULL)
 			return evaluate(left, right);
 	}
 
 	template<class T>
 	T BinaryExpressionModel<T>::evaluate(Expression<T> * l, Expression<T> * r) const
 	{
-		if (operator != null)
-			return _operator.evaluate(l, r);
+		if (_operator != NULL)
+			return _operator->evaluate(l, r);
 	}
 }
 #endif
