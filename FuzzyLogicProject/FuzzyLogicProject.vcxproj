@@ -160,6 +160,7 @@
     <ClInclude Include="core\CoreIncludes.h" />
     <ClInclude Include="core\Expression.h" />
     <ClInclude Include="core\ExpressionFactory.h" />
+    <ClInclude Include="core\NaryExpression.h" />
     <ClInclude Include="core\UnaryExpression.h" />
     <ClInclude Include="core\UnaryExpressionModel.h" />
     <ClInclude Include="core\UnaryShadowExpression.h" />
@@ -196,6 +197,8 @@
     <ClInclude Include="fuzzy\Or.h" />
     <ClInclude Include="fuzzy\OrMax.h" />
     <ClInclude Include="fuzzy\OrPlus.h" />
+    <ClInclude Include="fuzzy\SugenoConclusion.h" />
+    <ClInclude Include="fuzzy\SugenoDefuzz.h" />
     <ClInclude Include="fuzzy\Then.h" />
     <ClInclude Include="fuzzy\ThenMin.h" />
     <ClInclude Include="fuzzy\ThenMult.h" />
