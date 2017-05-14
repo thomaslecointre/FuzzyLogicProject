@@ -114,6 +114,7 @@ namespace fuzzy {
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newIs(Is<T> * is, Expression<T> * e)
 	{
+
 		return newBinary(&then, is, e); // ?
 	}
 

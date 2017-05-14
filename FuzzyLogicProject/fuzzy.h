@@ -2,8 +2,8 @@
 #define FUZZY_H
 
 #ifndef NUMERIC
-#define NUMERIC double
-#endif // !NUMERIC
+	#define NUMERIC double
+#endif
 
 #include "core\CoreIncludes.h"
 #include "evaluation\EvaluationIncludes.h"

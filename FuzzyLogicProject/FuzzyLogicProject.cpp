@@ -37,22 +37,22 @@ int main()
 	_ValueModel_ service(0);
 	_ValueModel_ food(0);
 	_ValueModel_ tips(0);
-	/*
+	
 	_Expression_ *r =
 		f.newAgg(
 			f.newAgg(
 				f.newThen(
-					f.newIs(&service, &poor),
-					f.newIs(&tips, &cheap)
+					f.newIs(&poor, &service),
+					f.newIs(&cheap, &tips)
 					),
 				f.newThen(
-					f.newIs(&service, &good),
-					f.newIs(&tips, &average)
+					f.newIs(&good, &service),
+					f.newIs(&average, &tips)
 					)
 				),
 			f.newThen(
-				f.newIs(&service, &excellent),
-				f.newIs(&tips, &generous)
+				f.newIs(&excellent, &service),
+				f.newIs(&generous, &tips)
 				)
 			);
 
@@ -65,9 +65,10 @@ int main()
 	{
 		cout << "service: ";
 		cin >> s;
-		
+		service.setValue(s);
+		cout << "tips ->" << system->evaluate() << endl;
 	}
-	*/
+	
 	return 0;
 }
 
