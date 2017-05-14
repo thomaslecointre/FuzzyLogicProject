@@ -176,14 +176,8 @@
     <ClInclude Include="fuzzy\GenericOperatorIncludes.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
-    <ClInclude Include="core\NaryExpression.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="fuzzy\SugenoDefuzz.h">
-      <Filter>Header Files\fuzzy</Filter>
-    </ClInclude>
-    <ClInclude Include="fuzzy\SugenoConclusion.h">
-      <Filter>Header Files\fuzzy</Filter>
+    <ClInclude Include="fuzzy.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
