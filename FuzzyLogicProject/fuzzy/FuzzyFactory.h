@@ -89,9 +89,10 @@ namespace fuzzy {
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T> * l, Expression<T> * r, const T & min, const T & max, const T & step)
 	{
-		((MamdaniDefuzz<T>*) defuzz.getTarget())->setMin(min);
-		((MamdaniDefuzz<T>*) defuzz.getTarget())->setMax(max);
-		((MamdaniDefuzz<T>*) defuzz.getTarget())->setStep(step);
+		MamdaniDefuzz<T> * temp = dynamic_cast<MamdaniDefuzz<T> *> (defuzz.getTarget());
+		temp->setMin(min);
+		temp->setMax(max);
+		temp->setStep(step);
 		return newBinary(&defuzz, l, r);
 	}
 
