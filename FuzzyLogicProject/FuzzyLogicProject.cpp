@@ -19,10 +19,9 @@ int main()
 	_ThenMin_ opThen;
 	_CogDefuzz_ opDefuzz;
 	_AggMax_ opAgg;
-	_IsTriangle_ opIs;
 
 	// fuzzy expression factory
-	_FuzzyFactory_ f(&opNot, &opAnd, &opOr, &opThen, &opDefuzz, &opAgg, &opIs);
+	_FuzzyFactory_ f(&opNot, &opAnd, &opOr, &opThen, &opDefuzz, &opAgg);
 
 	// membership function
 	_IsTriangle_ poor(-5, 0, 5);
@@ -42,17 +41,17 @@ int main()
 		f.newAgg(
 			f.newAgg(
 				f.newThen(
-					f.newIs(&poor, &service),
-					f.newIs(&cheap, &tips)
+					f.newIs(&service, &poor),
+					f.newIs(&tips, &cheap)
 					),
 				f.newThen(
-					f.newIs(&good, &service),
-					f.newIs(&average, &tips)
+					f.newIs(&service, &good),
+					f.newIs(&tips, &average)
 					)
 				),
 			f.newThen(
-				f.newIs(&excellent, &service),
-				f.newIs(&generous, &tips)
+				f.newIs(&service, &excellent),
+				f.newIs(&tips, &generous)
 				)
 			);
 

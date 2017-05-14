@@ -1,5 +1,6 @@
 #ifndef COGDEFUZZ_H
 #define COGDEFUZZ_H
+
 #include "../core/BinaryExpression.h"
 #include "MamdaniDefuzz.h"
 
@@ -13,7 +14,7 @@ namespace fuzzy {
 	public:
 		CogDefuzz();
 		virtual ~CogDefuzz() {};
-		
+
 		virtual T evaluate(Expression<T> * l, Expression<T> * r) const;
 	};
 
@@ -23,11 +24,11 @@ namespace fuzzy {
 
 	}
 
-	// l = ValueModel, r = Agg
+	// l = tips, r = Agg (BinaryExpressionModel)
 	template <class T>
 	T CogDefuzz<T>::evaluate(Expression<T> *l, Expression<T> *r) const
 	{
-		Shape<T> * shape = buildShape(min, max, step, l, r);
+		Shape<T> * shape = Evaluator<T>::buildShape(min, max, step, (BinaryExpressionModel<T>*)r);
 
 		// Determine how much area there is within the shape
 

@@ -9,10 +9,13 @@ namespace core {
 	public:
 		BinaryExpressionModel();
 		BinaryExpressionModel(BinaryExpression<T> * __operator, Expression<T> * _left, Expression<T> * _right);
+		BinaryExpressionModel(BinaryExpression<T> * __operator);
 		~BinaryExpressionModel();
 
 		T evaluate() const;
 		T evaluate(Expression<T> * l, Expression<T> * r) const;
+		Expression<T> * getLeft();
+		Expression<T> * getRight();
 	private:
 		BinaryExpression<T> * _operator;
 		Expression<T> * left;
@@ -31,6 +34,11 @@ namespace core {
 	}
 
 	template<class T>
+	BinaryExpressionModel<T>::BinaryExpressionModel(BinaryExpression<T> * __operator):
+		_operator(__operator)
+	{}
+
+	template<class T>
 	BinaryExpressionModel<T>::~BinaryExpressionModel()
 	{
 		delete _operator;
@@ -43,6 +51,8 @@ namespace core {
 	{
 		if (left != NULL && right != NULL)
 			return evaluate(left, right);
+		else
+			return NULL;
 	}
 
 	template<class T>
@@ -50,6 +60,20 @@ namespace core {
 	{
 		if (_operator != NULL)
 			return _operator->evaluate(l, r);
+		else
+			return NULL;
+	}
+
+	template<class T>
+	Expression<T> * BinaryExpressionModel<T>::getLeft()
+	{
+		return l;
+	}
+
+	template<class T>
+	Expression<T> * BinaryExpressionModel<T>::getRight()
+	{
+		return r;
 	}
 }
 #endif

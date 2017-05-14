@@ -179,5 +179,14 @@
     <ClInclude Include="fuzzy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="core\NaryExpression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\SugenoConclusion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\SugenoDefuzz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

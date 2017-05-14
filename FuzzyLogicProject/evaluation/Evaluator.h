@@ -2,7 +2,8 @@
 #define EVALUATOR_H
 
 #include <vector>
-#include "../core/Expression.h"
+#include "../core/BinaryExpressionModel.h"
+#include "../core/UnaryExpressionModel.h"
 #include "Shape.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ namespace evaluation {
 		};
 
 		static Shape<T> * buildShape(const T& min, const T& max, const T& step, EvalFunc & f);
-		static Shape<T> * buildShape(const T& min, const T& max, const T& step, Expression<T> * e);
+		static Shape<T> * buildShape(const T& min, const T& max, const T& step, BinaryExpressionModel<T> * e);
 		static ostream& printShape(ostream&, Shape<T> & s);
 	};
 
@@ -38,12 +39,12 @@ namespace evaluation {
 	}
 
 	template<class T>
-	Shape<T> * Evaluator<T>::buildShape(const T & min, const T & max, const T & step, Expression<T> * e)
+	Shape<T> * Evaluator<T>::buildShape(const T & min, const T & max, const T & step, BinaryExpressionModel<T> * e)
 	{
 		vector<T> x, y;
 		for (T i = min; i <= max; i += step)
 		{
-			y.push_back(e->evaluate(&ValueModel(i), &ValueModel(i)); ?
+			y.push_back(e->evaluate(&ValueModel<T>(i), &ValueModel<T>(i)));
 			x.push_back(i);
 		}
 		return new Shape<T>(x, y);
