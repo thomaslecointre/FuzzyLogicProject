@@ -1,6 +1,8 @@
 #ifndef NARY_EXPRESSION_H
 #define NARY_EXPRESSION_H
-#include "Expression.h"
+
+#include "CoreIncludes.h"
+
 namespace core {
 	template <class T>
 	class NaryExpression

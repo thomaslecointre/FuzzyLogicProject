@@ -6,3 +6,6 @@
 #include "UnaryExpressionModel.h"
 #include "UnaryShadowExpression.h"
 #include "ValueModel.h"
+#include "NaryExpression.h"
+#include "NaryExpressionModel.h"
+#include "NaryShadowExpression.h"

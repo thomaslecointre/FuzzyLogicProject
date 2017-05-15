@@ -6,7 +6,14 @@ namespace fuzzy {
 	class SugenoDefuzz : public NaryExpression<T>
 	{
 	public:
-		virtual T evaluate(Expression<T>[] * o) const;
+		T evaluate(Expression<T>*[] o) const;
 	};
+
+	template<class T>
+	T SugenoDefuzz<T>::evaluate(Expression<T>*[] o) const
+	{
+
+		return T();
+	}
 }
 #endif

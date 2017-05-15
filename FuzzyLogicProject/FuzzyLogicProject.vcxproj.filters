@@ -179,14 +179,23 @@
     <ClInclude Include="fuzzy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="core\NaryExpression.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="fuzzy\SugenoDefuzz.h">
+      <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
     <ClInclude Include="fuzzy\SugenoConclusion.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
-    <ClInclude Include="fuzzy\SugenoDefuzz.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="core\NaryExpression.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="fuzzy\SugenoThen.h">
+      <Filter>Header Files\fuzzy</Filter>
+    </ClInclude>
+    <ClInclude Include="core\NaryShadowExpression.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\NaryExpressionModel.h">
+      <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
