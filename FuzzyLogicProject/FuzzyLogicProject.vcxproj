@@ -22,7 +22,7 @@
     <ProjectGuid>{683C3325-FA1A-4620-8D05-6CAE354F95BF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>FuzzyLogicProject</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -160,6 +160,7 @@
     <ClInclude Include="core\CoreIncludes.h" />
     <ClInclude Include="core\Expression.h" />
     <ClInclude Include="core\ExpressionFactory.h" />
+    <ClInclude Include="core\NaryExpression.h" />
     <ClInclude Include="core\UnaryExpression.h" />
     <ClInclude Include="core\UnaryExpressionModel.h" />
     <ClInclude Include="core\UnaryShadowExpression.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="evaluation\TrapezoidEvaluator.h" />
     <ClInclude Include="evaluation\TrapezoidRightEvaluator.h" />
     <ClInclude Include="evaluation\TriangleEvaluator.h" />
+    <ClInclude Include="fuzzy.h" />
     <ClInclude Include="fuzzy\Agg.h" />
     <ClInclude Include="fuzzy\AggMax.h" />
     <ClInclude Include="fuzzy\AggPlus.h" />
@@ -196,6 +198,8 @@
     <ClInclude Include="fuzzy\Or.h" />
     <ClInclude Include="fuzzy\OrMax.h" />
     <ClInclude Include="fuzzy\OrPlus.h" />
+    <ClInclude Include="fuzzy\SugenoConclusion.h" />
+    <ClInclude Include="fuzzy\SugenoDefuzz.h" />
     <ClInclude Include="fuzzy\Then.h" />
     <ClInclude Include="fuzzy\ThenMin.h" />
     <ClInclude Include="fuzzy\ThenMult.h" />

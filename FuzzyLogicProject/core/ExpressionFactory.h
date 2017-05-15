@@ -43,23 +43,22 @@ namespace core {
 	template <class T>
 	Expression<T> * ExpressionFactory<T>::hold(Expression<T> * e)
 	{
-		expressions.insert(o);
-		return o;
+		expressions.insert(e);
+		return e;
 	}
 
 	template <class T>
 	Expression<T> * ExpressionFactory<T>::newUnary(UnaryExpression<T> * ope, Expression<T> * o)
 	{
-		return hold(UnaryExpressionModel(ope, e));
+		return hold(new UnaryExpressionModel<T>(ope, o));
 	}
 
 	template <class T>
 	Expression<T> * ExpressionFactory<T>::newBinary(BinaryExpression<T> * ope, Expression<T> * l, Expression<T> * r)
 	{
-		 return hold(BinaryExpressionModel(ope, l, r));
+		 return hold(new BinaryExpressionModel<T>(ope, l, r));
 	}
 
 }
-
 
 #endif

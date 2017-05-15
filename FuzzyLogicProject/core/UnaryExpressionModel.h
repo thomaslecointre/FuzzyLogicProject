@@ -11,6 +11,7 @@ namespace core {
 	public:
 		UnaryExpressionModel();
 		~UnaryExpressionModel();
+		UnaryExpressionModel(UnaryExpression<T> * __operator, Expression<T> * _operand);
 
 		T evaluate() const;
 		T evaluate(Expression<T> * o) const;
@@ -26,6 +27,11 @@ namespace core {
 	}
 
 	template<class T>
+	UnaryExpressionModel<T>::UnaryExpressionModel(UnaryExpression<T> * __operator, Expression<T> * _operand) :
+		_operator(__operator), operand(_operand)
+	{}
+
+	template<class T>
 	UnaryExpressionModel<T>::~UnaryExpressionModel()
 	{
 		delete _operator;
@@ -35,15 +41,19 @@ namespace core {
 	template<class T>
 	T UnaryExpressionModel<T>::evaluate() const
 	{
-		if (operand != null)
+		if (operand != nullptr)
 			return evaluate(operand);
+		else
+			return NULL;
 	}
 
 	template<class T>
 	T UnaryExpressionModel<T>::evaluate(Expression<T> * o) const
 	{
-		if (_operator != null)
-			return _operator.evaluate(o);
+		if (_operator != nullptr)
+			return _operator->evaluate(o);
+		else
+			return NULL;
 	}
 }
 #endif 

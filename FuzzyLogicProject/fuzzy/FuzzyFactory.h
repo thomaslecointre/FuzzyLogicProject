@@ -15,7 +15,7 @@ namespace fuzzy {
 	{
 	public:
 		FuzzyFactory();
-		FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg, Is<T> * opIs);
+		FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg);
 
 		Expression<T> * newAnd(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newOr(Expression<T> * l, Expression<T> * r);
@@ -24,7 +24,7 @@ namespace fuzzy {
 		Expression<T> * newDefuzz(Expression<T> * l, Expression<T> * r, const T & min, const T & max, const T & step);
 		Expression<T> * newAgg(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newNot(Expression<T> * e);
-		Expression<T> * newIs(Expression<T> * e);
+		Expression<T> * newIs(Expression<T> * e, Is<T> * is);
 
 		void changeAnd(And<T> * e);
 		void changeOr(Or<T> * e);
@@ -32,11 +32,9 @@ namespace fuzzy {
 		void changeDefuzz(MamdaniDefuzz<T> * e);
 		void changeAgg(Agg<T> * e);
 		void changeNot(Not<T> * e);
-		void changeIs(Is<T> * e);
 
 	private:
 		UnaryShadowExpression<T> & not;
-		UnaryShadowExpression<T> & is;
 		BinaryShadowExpression<T> & and;
 		BinaryShadowExpression<T> & or;
 		BinaryShadowExpression<T> & then;
@@ -51,14 +49,13 @@ namespace fuzzy {
 	}
 
 	template <class T>
-	FuzzyFactory<T>::FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg, Is<T> * opIs) :
+	FuzzyFactory<T>::FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg) :
 		not(UnaryShadowExpression<T>(opNot)),
 		and(BinaryShadowExpression<T>(opAnd)),
 		or(BinaryShadowExpression<T>(opOr)),
 		then(BinaryShadowExpression<T>(opThen)),
 		defuzz(BinaryShadowExpression<T>(opDefuzz)),
-		agg(BinaryShadowExpression<T>(opAgg)),
-		is(UnaryShadowExpression<T>(opIs))
+		agg(BinaryShadowExpression<T>(opAgg))
 	{
 
 	}
@@ -92,9 +89,10 @@ namespace fuzzy {
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T> * l, Expression<T> * r, const T & min, const T & max, const T & step)
 	{
-		defuzz.getTarget().setMin(min);
-		defuzz.getTarget().setMax(max);
-		defuzz.getTarget().setStep(step);
+		MamdaniDefuzz<T> * temp = dynamic_cast<MamdaniDefuzz<T> *> (defuzz.getTarget());
+		temp->setMin(min);
+		temp->setMax(max);
+		temp->setStep(step);
 		return newBinary(&defuzz, l, r);
 	}
 
@@ -112,9 +110,9 @@ namespace fuzzy {
 	}
 
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newIs(Expression<T> * e)
+	Expression<T>* FuzzyFactory<T>::newIs(Expression<T> * e, Is<T> * is)
 	{
-		return newUnary(&is, e);
+		return newUnary(is, e);
 	}
 
 	template<class T>
@@ -151,12 +149,6 @@ namespace fuzzy {
 	void FuzzyFactory<T>::changeNot(Not<T>* e)
 	{
 		not.setTarget(e);
-	}
-
-	template<class T>
-	void FuzzyFactory<T>::changeIs(Is<T>* e)
-	{
-		is.setTarget(e);
 	}
 }
 #endif
