@@ -24,7 +24,7 @@ namespace fuzzy {
 		Expression<T> * newDefuzz(Expression<T> * l, Expression<T> * r, const T & min, const T & max, const T & step);
 		Expression<T> * newAgg(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newNot(Expression<T> * e);
-		Expression<T> * newIs(Is<T> * is,  Expression<T> * e);
+		Expression<T> * newIs(Expression<T> * e);
 
 		void changeAnd(And<T> * e);
 		void changeOr(Or<T> * e);
@@ -112,9 +112,9 @@ namespace fuzzy {
 	}
 
 	template<class T>
-	Expression<T>* FuzzyFactory<T>::newIs(Is<T> * is, Expression<T> * e)
+	Expression<T>* FuzzyFactory<T>::newIs(Expression<T> * e)
 	{
-		return newBinary(&then, is, e); // ?
+		return newUnary(&is, e);
 	}
 
 	template<class T>

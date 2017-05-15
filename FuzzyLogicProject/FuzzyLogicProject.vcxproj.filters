@@ -176,8 +176,5 @@
     <ClInclude Include="fuzzy\GenericOperatorIncludes.h">
       <Filter>Header Files\fuzzy</Filter>
     </ClInclude>
-    <ClInclude Include="fuzzy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
