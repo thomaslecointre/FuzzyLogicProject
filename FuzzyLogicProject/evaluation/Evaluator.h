@@ -22,8 +22,7 @@ namespace evaluation {
 		};
 
 		static Shape<T> * buildShape(const T& min, const T& max, const T& step, EvalFunc & f);
-		static Shape<T> * buildShape(const T& min, const T& max, const T& step, BinaryExpressionModel<T> * e);
-		static ostream& printShape(ostream&, Shape<T> & s);
+		static Shape<T> * buildShape(const T& min, const T& max, const T& step, Expression<T> * tips, BinaryExpressionModel<T> * r);
 	};
 
 	template <class T>
@@ -39,33 +38,17 @@ namespace evaluation {
 	}
 
 	template<class T>
-	Shape<T> * Evaluator<T>::buildShape(const T & min, const T & max, const T & step, BinaryExpressionModel<T> * e)
+	Shape<T> * Evaluator<T>::buildShape(const T & min, const T & max, const T & step, Expression<T> * tips, BinaryExpressionModel<T> * r)
 	{
 		vector<T> x, y;
 		for (T i = min; i <= max; i += step)
 		{
-			y.push_back(e->evaluate(&ValueModel<T>(i), &ValueModel<T>(i)));
+			ValueModel<T> * temp = (ValueModel<T> *)(tips);
+			temp->setValue(i);
+			y.push_back(r->evaluate());
 			x.push_back(i);
 		}
 		return new Shape<T>(x, y);
-	}
-
-	template <class T>
-	ostream& Evaluator<T>::printShape(ostream& os, Shape<T> & s)
-	{
-		os << '[';
-		vector<T>::const_iterator it = s.fBegin();
-		for (; it != s.fEnd(); ++it)
-			os << *it << ' ';
-		os << ']';
-		os << endl;
-		os << '[';
-		it = s.sBegin();
-		for (; it != s.sEnd(); ++it)
-			os << *it << ' ';
-		os << ']';
-		os << std::endl;
-		return os;
 	}
 }
 #endif // !EVALUATOR_H

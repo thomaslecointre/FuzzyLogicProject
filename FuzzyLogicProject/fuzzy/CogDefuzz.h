@@ -4,6 +4,8 @@
 #include "../core/BinaryExpression.h"
 #include "MamdaniDefuzz.h"
 
+#include <numeric>
+
 using namespace core;
 using namespace evaluation;
 
@@ -24,32 +26,46 @@ namespace fuzzy {
 
 	}
 
-	// l = tips, r = Agg (BinaryExpressionModel)
+	// l = tips, r = agg (BinaryExpressionModel)
 	template <class T>
-	T CogDefuzz<T>::evaluate(Expression<T> *l, Expression<T> *r) const
+	T CogDefuzz<T>::evaluate(Expression<T> * l, Expression<T> * r) const
 	{
-		Shape<T> * shape = Evaluator<T>::buildShape(min, max, step, (BinaryExpressionModel<T>*)r);
+		Shape<T> * shape = Evaluator<T>::buildShape(min, max, step, l, (BinaryExpressionModel<T>*)r);
+
+		shape->PrintOn(std::cout);
 
 		// Determine how much area there is within the shape
-
-		T area = 0;
-		T leftSide;
-		T rightSide;
+		double area = std::accumulate(shape->sBegin(), shape->sEnd(), 0);
+		// double area = 0;
+		
+		double leftSide;
+		double rightSide;
 		vector<T>::const_iterator itS = shape->sBegin();
 		vector<T>::const_iterator itF = shape->fBegin();
-
+		/*
 		for (;itF != shape->fEnd(); itF++)
 		{
-			leftSide = *itS;
-			rightSide = *(++itS);
-			area += (1.0f / 2.0f) * (leftSide + rightSide);
+			if (++itF != shape->fEnd()) 
+			{
+				leftSide = *itS;
+				rightSide = *(++itS);
+				itF--;
+			}
+			else 
+			{
+				break;
+			}
+			
+			area += (1.0 / 2.0) * (leftSide + rightSide);
 		}
-
+		*/
 		// Find x coordinate of COG
 
-		T halfway = area / 2.0f;
-		area = 0;
-		T fCoord;
+		std::cout << "area : " << area << std::endl;
+		double halfway = area / 2.0;
+		std::cout << "halfway : " << halfway << std::endl;
+		area = 0.0;
+		T fCoord = 0;
 		itS = shape->sBegin();
 
 		for (itF = shape->fBegin(); itF != shape->fEnd(); itF++)
@@ -59,9 +75,17 @@ namespace fuzzy {
 				fCoord = *itF;
 				break;
 			}
-			leftSide = *itS;
-			rightSide = *(++itS);
-			area += (1.0f / 2.0f) * (leftSide + rightSide);
+			if (++itF != shape->fEnd())
+			{
+				leftSide = *itS;
+				rightSide = *(++itS);
+				itF--;
+				area += (1.0 / 2.0) * (leftSide + rightSide);
+			}
+			else
+			{
+				break;
+			}
 		}
 		
 		return fCoord;

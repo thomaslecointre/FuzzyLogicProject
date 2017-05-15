@@ -19,8 +19,6 @@ namespace fuzzy {
 		
 		virtual T evaluate(Expression<T> * l, Expression<T> * r) const = 0;
 
-		virtual Shape<T> * buildShape(const T & _min, const T & _max, const T & _step, Expression<T> * l, Expression<T> * r) const;
-
 		virtual void setMin(const T & _min);
 		virtual void setMax(const T & _max);
 		virtual void setStep(const T & _step);
@@ -40,14 +38,6 @@ namespace fuzzy {
 		min(_min), max(_max), step(_step) 
 	{
 
-	}
-
-	// l = ValueModel, r = IsTriangle (?)
-	template <class T>
-	Shape<T> * MamdaniDefuzz<T>::buildShape(const T & _min, const T & _max, const T & _step, Expression<T> * l, Expression<T> * r) const
-	{
-		BinaryExpressionModel<T> bem(&ThenMin<T>(), l, r);
-		return Evaluator<T>::buildShape(_min, _max, _step, &bem);
 	}
 	
 	template <class T>

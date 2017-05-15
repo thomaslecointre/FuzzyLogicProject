@@ -2,7 +2,7 @@
 //
 #include "stdafx.h"
 
-#define NUMERIC float
+#define NUMERIC double
 #include "fuzzy.h"
 
 #include "core\CoreIncludes.h"
@@ -33,8 +33,8 @@ int main()
 	_IsTriangle_ generous(20, 25, 30);
 	
 	// values
-	_ValueModel_ service(0);
-	_ValueModel_ food(0);
+	_ValueModel_ service(8);
+	_ValueModel_ food(3);
 	_ValueModel_ tips(0);
 	
 	_Expression_ *r =
@@ -55,7 +55,7 @@ int main()
 				)
 			);
 
-	_Expression_ *system = f.newDefuzz(&tips, r, 0, 25, 1);
+	_Expression_ * system = f.newDefuzz(&tips, r, 0, 25, 1);
 	
 
 	// apply input

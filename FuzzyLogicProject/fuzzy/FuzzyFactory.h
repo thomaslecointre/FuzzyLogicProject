@@ -34,12 +34,12 @@ namespace fuzzy {
 		void changeNot(Not<T> * e);
 
 	private:
-		UnaryShadowExpression<T> & not;
-		BinaryShadowExpression<T> & and;
-		BinaryShadowExpression<T> & or;
-		BinaryShadowExpression<T> & then;
-		BinaryShadowExpression<T> & defuzz;
-		BinaryShadowExpression<T> & agg;
+		UnaryShadowExpression<T> * not;
+		BinaryShadowExpression<T> * and;
+		BinaryShadowExpression<T> * or;
+		BinaryShadowExpression<T> * then;
+		BinaryShadowExpression<T> * defuzz;
+		BinaryShadowExpression<T> * agg;
 	};
 
 	template <class T>
@@ -50,12 +50,12 @@ namespace fuzzy {
 
 	template <class T>
 	FuzzyFactory<T>::FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg) :
-		not(UnaryShadowExpression<T>(opNot)),
-		and(BinaryShadowExpression<T>(opAnd)),
-		or(BinaryShadowExpression<T>(opOr)),
-		then(BinaryShadowExpression<T>(opThen)),
-		defuzz(BinaryShadowExpression<T>(opDefuzz)),
-		agg(BinaryShadowExpression<T>(opAgg))
+		not(new UnaryShadowExpression<T>(opNot)),
+		and(new BinaryShadowExpression<T>(opAnd)),
+		or(new BinaryShadowExpression<T>(opOr)),
+		then(new BinaryShadowExpression<T>(opThen)),
+		defuzz(new BinaryShadowExpression<T>(opDefuzz)),
+		agg(new BinaryShadowExpression<T>(opAgg))
 	{
 
 	}
@@ -63,50 +63,50 @@ namespace fuzzy {
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newAnd(Expression<T>* l, Expression<T>* r)
 	{
-		return newBinary(&and, l, r);
+		return newBinary(and, l, r);
 	}
 
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newOr(Expression<T>* l, Expression<T>* r)
 	{
-		return newBinary(&or , l, r);
+		return newBinary(or , l, r);
 	}
 
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newThen(Expression<T> * l, Expression<T>* r)
 	{
-		return newBinary(&then, l, r);
+		return newBinary(then, l, r);
 	}
 
 	// l = ValueModel, r = Agg
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T>* l, Expression<T>* r)
 	{
-		return newBinary(&defuzz, l, r);
+		return newBinary(defuzz, l, r);
 	}
 
 	// l = ValueModel, r = Agg
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newDefuzz(Expression<T> * l, Expression<T> * r, const T & min, const T & max, const T & step)
 	{
-		MamdaniDefuzz<T> * temp = dynamic_cast<MamdaniDefuzz<T> *> (defuzz.getTarget());
+		MamdaniDefuzz<T> * temp = (MamdaniDefuzz<T> *) (defuzz->getTarget());
 		temp->setMin(min);
 		temp->setMax(max);
 		temp->setStep(step);
-		return newBinary(&defuzz, l, r);
+		return newBinary(defuzz, l, r);
 	}
 
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newAgg(Expression<T>* l, Expression<T>* r)
 	{
-		return newBinary(&agg, l, r);
+		return newBinary(agg, l, r);
 	}
 
 
 	template<class T>
 	Expression<T>* FuzzyFactory<T>::newNot(Expression<T> * e)
 	{
-		return newUnary(&not, e);
+		return newUnary(not, e);
 	}
 
 	template<class T>

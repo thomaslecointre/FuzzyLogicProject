@@ -21,6 +21,8 @@ namespace evaluation {
 
 		const size_t size() const;
 
+		ostream& PrintOn(ostream&) const;
+
 	private:
 		const vector<T> first;
 		const vector<T> second;
@@ -67,6 +69,31 @@ namespace evaluation {
 	const size_t Shape<T>::size() const
 	{
 		return first.size();
+	}
+
+	template<class T>
+	ostream& Shape<T>::PrintOn(ostream& os) const
+	{
+		/*
+		os << '[';
+		
+		for (typename vector<T>::const_iterator itF = fBegin(); itF != fEnd(); itF++)
+		{
+			os << ' ' << *itF;
+		}
+
+		os << " ]" << endl;
+		*/
+		os << '[';
+			
+		for (typename vector<T>::const_iterator itS = sBegin(); itS != sEnd(); itS++)
+		{
+			os << ' ' << *itS;
+		}
+
+		os << " ]" << endl;
+
+		return os;
 	}
 }
 
