@@ -12,12 +12,16 @@ namespace fuzzy {
 	{
 	public:
 		SugenoThen();
+		SugenoThen(And<T> * _andFunction);
 		~SugenoThen();
 
 		T evaluate(Expression<T> * l, Expression<T> * r) const;
 
-		T PremiseValue();
+		void setAnd(And<T> * _andFunction);
+
+		T PremiseValue() const;
 	private:
+		And<T> * andFunction;
 		T premiseValue;
 	};
 	
@@ -27,6 +31,11 @@ namespace fuzzy {
 	}
 
 	template<class T>
+	SugenoThen<T>::SugenoThen(And<T> * _andFunction):
+		andFunction(_andFunction)
+	{}
+
+	template<class T>
 	SugenoThen<T>::~SugenoThen()
 	{
 	}
@@ -34,11 +43,18 @@ namespace fuzzy {
 	template<class T>
 	T SugenoThen<T>::evaluate(Expression<T>* l, Expression<T>* r) const
 	{
-		return T(); // TODO
+		premiseValue = andFunction.evaluate(l, r);
+		return premiseValue;
 	}
 
 	template<class T>
-	T SugenoThen<T>::PremiseValue()
+	void SugenoThen<T>::setAnd(And<T> * _andFunction)
+	{
+		andFunction = _andFunction;
+	}
+
+	template<class T>
+	T SugenoThen<T>::PremiseValue() const
 	{
 		return premiseValue;
 	}

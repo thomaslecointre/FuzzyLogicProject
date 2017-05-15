@@ -27,8 +27,12 @@ typedef fuzzy::OrMax<NUMERIC> _OrMax_;
 typedef fuzzy::OrPlus<NUMERIC> _OrPlus_;
 typedef fuzzy::ThenMin<NUMERIC> _ThenMin_;
 typedef fuzzy::ThenMult<NUMERIC> _ThenMult_;
-
 typedef fuzzy::FuzzyFactory<NUMERIC> _FuzzyFactory_;
+
+typedef fuzzy::SugenoThen<NUMERIC> _SugenoThen_;
+typedef fuzzy::SugenoConclusion<NUMERIC> _SugenoConclusion_;
+typedef fuzzy::SugenoDefuzz<NUMERIC> _SugenoDefuzz_;
+
 typedef core::Expression<NUMERIC> _Expression_;
 typedef core::ValueModel<NUMERIC> _ValueModel_;
 

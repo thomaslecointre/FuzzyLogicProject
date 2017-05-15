@@ -22,3 +22,6 @@
 #include "MamdaniDefuzz.h"
 #include "CogDefuzz.h"
 
+#include "SugenoThen.h"
+#include "SugenoConclusion.h"
+#include "SugenoDefuzz.h"
