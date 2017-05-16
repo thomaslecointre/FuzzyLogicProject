@@ -33,6 +33,9 @@ typedef fuzzy::SugenoThen<NUMERIC> _SugenoThen_;
 typedef fuzzy::SugenoConclusion<NUMERIC> _SugenoConclusion_;
 typedef fuzzy::SugenoDefuzz<NUMERIC> _SugenoDefuzz_;
 
+typedef std::vector<NUMERIC> _vector_;
+typedef std::vector<Expression<NUMERIC>*> _vectorExpression_;
+
 typedef core::Expression<NUMERIC> _Expression_;
 typedef core::ValueModel<NUMERIC> _ValueModel_;
 

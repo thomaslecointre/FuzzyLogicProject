@@ -14,6 +14,7 @@ namespace core {
 
 		T evaluate() const;
 		T evaluate(Expression<T> * l, Expression<T> * r) const;
+		BinaryExpression<T> * getOperator();
 		Expression<T> * getLeft();
 		Expression<T> * getRight();
 	private:
@@ -62,6 +63,12 @@ namespace core {
 			return _operator->evaluate(l, r);
 		else
 			return NULL;
+	}
+
+	template<class T>
+	BinaryExpression<T> * BinaryExpressionModel<T>::getOperator()
+	{
+		return _operator;
 	}
 
 	template<class T>

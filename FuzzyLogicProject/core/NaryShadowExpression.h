@@ -1,7 +1,7 @@
 #ifndef NARY_SHADOW_EXPRESSION
 #define NARY_SHADOW_EXPRESSION
 
-#include <set>
+#include <vector>
 #include "NaryExpression.h"
 #include "Expression.h"
 
@@ -16,7 +16,7 @@ namespace core {
 		NaryShadowExpression(NaryExpression<T> * _target);
 		~NaryShadowExpression();
 
-		T evaluate(set<Expression<T>*> operands) const;
+		T evaluate(typename vector<Expression<T>*> * operands) const;
 		NaryExpression<T> * getTarget();
 	private:
 		NaryExpression<T> * target;
@@ -38,14 +38,16 @@ namespace core {
 	}
 
 	template<class T>
-	inline T NaryShadowExpression<T>::evaluate(set<Expression<T>*> operands) const
+	T NaryShadowExpression<T>::evaluate(typename vector<Expression<T>*> * operands) const
 	{
 		if (target != NULL)
-			retrun target->evaluate(operands);
+			return target->evaluate(operands);
+		else
+			return 0;
 	}
 
 	template<class T>
-	inline NaryExpression<T>* NaryShadowExpression<T>::getTarget()
+	NaryExpression<T>* NaryShadowExpression<T>::getTarget()
 	{
 		return target;
 	}

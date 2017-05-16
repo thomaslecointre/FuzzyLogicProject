@@ -15,7 +15,7 @@ namespace fuzzy {
 	{
 	public:
 		FuzzyFactory();
-		FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg);
+		FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg, SugenoDefuzz<T> * opSugeno, SugenoConclusion<T> * opConclusion);
 
 		Expression<T> * newAnd(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newOr(Expression<T> * l, Expression<T> * r);
@@ -25,6 +25,8 @@ namespace fuzzy {
 		Expression<T> * newAgg(Expression<T> * l, Expression<T> * r);
 		Expression<T> * newNot(Expression<T> * e);
 		Expression<T> * newIs(Expression<T> * e, Is<T> * is);
+		Expression<T> * newSugeno(typename vector<Expression<T>*> * operands);
+		Expression<T> * newConclusion(typename vector<Expression<T>*> * operands);
 
 		void changeAnd(And<T> * e);
 		void changeOr(Or<T> * e);
@@ -40,6 +42,8 @@ namespace fuzzy {
 		BinaryShadowExpression<T> * then;
 		BinaryShadowExpression<T> * defuzz;
 		BinaryShadowExpression<T> * agg;
+		NaryShadowExpression<T> * sugeno;
+		NaryShadowExpression<T> * conclusion;
 	};
 
 	template <class T>
@@ -49,13 +53,15 @@ namespace fuzzy {
 	}
 
 	template <class T>
-	FuzzyFactory<T>::FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg) :
+	FuzzyFactory<T>::FuzzyFactory(Not<T> * opNot, And<T> * opAnd, Or<T> * opOr, Then<T> * opThen, MamdaniDefuzz<T> * opDefuzz, Agg<T> * opAgg, SugenoDefuzz<T> * opSugeno, SugenoConclusion<T> * opConclusion) :
 		not(new UnaryShadowExpression<T>(opNot)),
 		and(new BinaryShadowExpression<T>(opAnd)),
 		or(new BinaryShadowExpression<T>(opOr)),
 		then(new BinaryShadowExpression<T>(opThen)),
 		defuzz(new BinaryShadowExpression<T>(opDefuzz)),
-		agg(new BinaryShadowExpression<T>(opAgg))
+		agg(new BinaryShadowExpression<T>(opAgg)),
+		sugeno(new NaryShadowExpression<T>(opSugeno)),
+		conclusion(new NaryShadowExpression<T>(opConclusion))
 	{
 
 	}
@@ -113,6 +119,18 @@ namespace fuzzy {
 	Expression<T>* FuzzyFactory<T>::newIs(Expression<T> * e, Is<T> * is)
 	{
 		return newUnary(is, e);
+	}
+
+	template<class T>
+	Expression<T>* FuzzyFactory<T>::newSugeno(typename vector<Expression<T>*> * operands)
+	{
+		return newNary(sugeno, operands);
+	}
+
+	template<class T>
+	Expression<T>* FuzzyFactory<T>::newConclusion(typename vector<Expression<T>*> * operands)
+	{
+		return newNary(conclusion, operands);
 	}
 
 	template<class T>

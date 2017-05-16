@@ -1,7 +1,7 @@
 #ifndef SUGENO_CONCLUSION_H
 #define SUGENO_CONCLUSION_H
 
-#include <set>
+#include <vector>
 #include "../core/CoreIncludes.h"
 
 using namespace std;
@@ -13,12 +13,12 @@ namespace fuzzy {
 	{
 	public:
 		SugenoConclusion();
-		SugenoConclusion(set<T> _coeff);
+		SugenoConclusion(typename vector<T> & _coeff);
 		~SugenoConclusion();
 
-		T evaluate(set<Expression<T>*> * operands) const;
+		T evaluate(typename vector<Expression<T>*> * operands) const;
 	private: 
-		set<T> coeff;
+		typename vector<T> coeff;
 	};
 	
 	template<class T>
@@ -27,7 +27,7 @@ namespace fuzzy {
 	}
 
 	template<class T>
-	SugenoConclusion<T>::SugenoConclusion(set<T> _coeff):
+	SugenoConclusion<T>::SugenoConclusion(typename vector<T> & _coeff):
 		coeff(_coeff)
 	{}
 
@@ -37,9 +37,18 @@ namespace fuzzy {
 	}
 
 	template<class T>
-	T SugenoConclusion<T>::evaluate(set<Expression<T>*> * operands) const
+	T SugenoConclusion<T>::evaluate(typename vector<Expression<T>*> * operands) const
 	{
-		return T();
+		typename vector<T>::const_iterator itCoeff = coeff.begin();
+		typename vector<Expression<T>*>::const_iterator itExp = operands->begin();
+		T result = 0;
+
+		for (; itExp != operands->end() && itCoeff != coeff.end(); itExp++, itCoeff++) {
+			T evaluation = (*itExp)->evaluate();
+			result += *itCoeff * evaluation;
+		}
+
+		return result;
 	}
 }
 #endif

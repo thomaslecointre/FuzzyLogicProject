@@ -21,6 +21,7 @@ namespace core {
 		Expression<T> * hold(Expression<T> * e);
 		Expression<T> * newUnary(UnaryExpression<T> * ope, Expression<T> * o);
 		Expression<T> * newBinary(BinaryExpression<T> * ope, Expression<T> * l, Expression<T> * r);
+		Expression<T> * newNary(NaryExpression<T> * ope, typename vector<Expression<T>*> * operands);
 	
 	private:
 		set<Expression<T> *> expressions;
@@ -57,6 +58,12 @@ namespace core {
 	Expression<T> * ExpressionFactory<T>::newBinary(BinaryExpression<T> * ope, Expression<T> * l, Expression<T> * r)
 	{
 		 return hold(new BinaryExpressionModel<T>(ope, l, r));
+	}
+
+	template <class T>
+	Expression<T> * ExpressionFactory<T>::newNary(NaryExpression<T> * ope, typename vector<Expression<T>*> * operands)
+	{
+		return hold(new NaryExpressionModel<T>(ope, operands));
 	}
 
 }
