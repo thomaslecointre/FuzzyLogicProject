@@ -61,9 +61,8 @@ void mamdaniFuzzyInference(_FuzzyFactory_ & f)
 void sugenoFuzzyInference(_FuzzyFactory_ & f)
 {
 	// Inputs
-	_ValueModel_ service(0);
-	_ValueModel_ food(0);
-	_ValueModel_ tips(0);
+	_ValueModel_ service(3);
+	_ValueModel_ food(8);
 
 	// Tips
 	_ValueModel_ cheap(5);
@@ -71,11 +70,11 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	_ValueModel_ generous(25);
 
 	// Quality
-	_IsTrapezoid_ poor(0, 3, 6, 9);
-	_IsTrapezoid_ good(6, 10, 14, 18);
-	_IsTrapezoid_ excellent(15, 19, 23, 27);
-	_IsTriangle_ rancid(-5, 0, 5);
-	_IsTriangle_ delicious(5, 10, 15);
+	_IsGaussian_ poor(2, 0);
+	_IsGaussian_ good(2, 5);
+	_IsGaussian_ excellent(2, 10);
+	_IsTrapezoidLeft_ rancid(1.5, 4);
+	_IsTrapezoidRight_ delicious(7, 9);
 
 	// Defuzz
 	_SugenoDefuzz_ opSugeno;

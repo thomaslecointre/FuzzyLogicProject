@@ -28,8 +28,8 @@ namespace fuzzy {
 
 		for (it = operands->begin(); it != operands->end(); it++) {
 			BinaryExpressionModel<T> * model = (BinaryExpressionModel<T>*) (*it);
-			SugenoThen<T> *sugeno = (SugenoThen<T>*) model->getOperator();
-
+			SugenoThen<T> * sugeno = (SugenoThen<T>*) model->getOperator();
+			sugeno->updatePremiseValue(model->getLeft());
 			denominator += sugeno->PremiseValue();
 		}
 

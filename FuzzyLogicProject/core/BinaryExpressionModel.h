@@ -14,9 +14,11 @@ namespace core {
 
 		T evaluate() const;
 		T evaluate(Expression<T> * l, Expression<T> * r) const;
+
 		BinaryExpression<T> * getOperator();
 		Expression<T> * getLeft();
 		Expression<T> * getRight();
+	
 	private:
 		BinaryExpression<T> * _operator;
 		Expression<T> * left;
@@ -74,13 +76,13 @@ namespace core {
 	template<class T>
 	Expression<T> * BinaryExpressionModel<T>::getLeft()
 	{
-		return l;
+		return left;
 	}
 
 	template<class T>
 	Expression<T> * BinaryExpressionModel<T>::getRight()
 	{
-		return r;
+		return right;
 	}
 }
 #endif
