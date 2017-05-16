@@ -44,6 +44,7 @@ namespace fuzzy {
 	T SugenoThen<T>::evaluate(Expression<T>* l, Expression<T>* r) const
 	{
 		premiseValue = l->evaluate();
+		// cout << "premiseValue : " << premiseValue << endl;
 		return premiseValue * r->evaluate();
 	}
 

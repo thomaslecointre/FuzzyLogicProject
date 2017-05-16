@@ -28,12 +28,13 @@ namespace fuzzy {
 
 		for (it = operands->begin(); it != operands->end(); it++) {
 			BinaryExpressionModel<T> * model = (BinaryExpressionModel<T>*) (*it);
-			BinaryShadowExpression<T> * shadow = (BinaryShadowExpression<T>*) model->getOperator();
-			Then<T> * then = (Then<T>*) shadow->getTarget();
-			SugenoThen<T> *sugeno = (SugenoThen<T>*) then;
+			SugenoThen<T> *sugeno = (SugenoThen<T>*) model->getOperator();
 
 			denominator += sugeno->PremiseValue();
 		}
+
+		cout << "numerator : " << numerator << endl;
+		cout << "denominator : " << denominator << endl;
 
 		if (denominator != 0)
 			return numerator / denominator;

@@ -22,8 +22,8 @@ void mamdaniFuzzyInference(_FuzzyFactory_ & f)
 	_IsTriangle_ generous(20, 25, 30);
 
 	// values
-	_ValueModel_ service(8);
-	_ValueModel_ food(3);
+	_ValueModel_ service(3);
+	_ValueModel_ food(8);
 	_ValueModel_ tips(0);
 
 	_Expression_ *r =
@@ -44,7 +44,7 @@ void mamdaniFuzzyInference(_FuzzyFactory_ & f)
 			)
 		);
 
-	_Expression_ * system = f.newDefuzz(&tips, r, 0, 25, 1);
+	_Expression_ * system = f.newDefuzz(&tips, r, 0, 25, 0.1);
 
 
 	// apply input
@@ -83,6 +83,7 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	coef.push_back(1);
 	coef.push_back(1);
 	_SugenoConclusion_ opConclusion(coef);
+	f.changeSugenoConclusion(opConclusion);
 
 	// Conclusion
 	_vectorExpression_ serviceFood;
@@ -95,7 +96,7 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	// Rules
 	_vectorExpression_ rules;
 	rules.push_back(
-		f.newThen(
+		f.newSugenoThen(
 			f.newOr(
 				f.newIs(&service, &poor),
 				f.newIs(&food, &rancid)
@@ -105,14 +106,14 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	);
 
 	rules.push_back(
-		f.newThen(
+		f.newSugenoThen(
 			f.newIs(&service, &good),
 			f.newConclusion(&vService)
 		)
 	);
 
 	rules.push_back(
-		f.newThen(
+		f.newSugenoThen(
 			f.newOr(
 				f.newIs(&service, &excellent),
 				f.newIs(&food, &delicious)
@@ -152,9 +153,10 @@ int main()
 	_AggMax_ opAgg;
 	_SugenoDefuzz_ opSugenoDefuzz;
 	_SugenoConclusion_ opConclusion;
+	_SugenoThen_ opSugenoThen;
 
 	// fuzzy expression factory
-	_FuzzyFactory_ f(&opNot, &opAnd, &opOr, &opThen, &opDefuzz, &opAgg, &opSugenoDefuzz, &opConclusion);
+	_FuzzyFactory_ f(&opNot, &opAnd, &opOr, &opThen, &opDefuzz, &opAgg, &opSugenoDefuzz, &opConclusion, &opSugenoThen);
 
 	// mamdaniFuzzyInference(f);
 
