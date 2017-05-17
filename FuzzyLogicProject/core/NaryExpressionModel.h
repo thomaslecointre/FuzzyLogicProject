@@ -14,10 +14,10 @@ namespace core {
 	public:
 		NaryExpressionModel();
 		NaryExpressionModel(NaryExpression<T> * __operator, typename vector<Expression<T>*> * _operands);
-		~NaryExpressionModel();
+		virtual ~NaryExpressionModel();
 
-		T evaluate() const;
-		T evaluate(typename vector<Expression<T>*> * operands) const;
+		virtual T evaluate() const;
+		virtual T evaluate(typename vector<Expression<T>*> * operands) const;
 	private:
 		NaryExpression<T> * _operator;
 		typename vector<Expression<T>*> * operands;

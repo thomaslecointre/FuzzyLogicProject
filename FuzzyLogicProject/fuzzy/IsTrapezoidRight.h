@@ -10,9 +10,9 @@ namespace fuzzy {
 	public:
 		IsTrapezoidRight();
 		IsTrapezoidRight(const T& _mid2, const T& _max);
-		~IsTrapezoidRight();
+		virtual ~IsTrapezoidRight();
 
-		T evaluate(Expression<T> * o) const;
+		virtual T evaluate(Expression<T> * o) const;
 	private:
 		T min, mid1, max;
 	};

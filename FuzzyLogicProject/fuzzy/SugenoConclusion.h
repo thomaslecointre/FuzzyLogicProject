@@ -14,9 +14,9 @@ namespace fuzzy {
 	public:
 		SugenoConclusion();
 		SugenoConclusion(typename vector<T> & _coeff);
-		~SugenoConclusion();
+		virtual ~SugenoConclusion();
 
-		T evaluate(typename vector<Expression<T>*> * operands) const;
+		virtual T evaluate(typename vector<Expression<T>*> * operands) const;
 	private: 
 		typename vector<T> coeff;
 	};

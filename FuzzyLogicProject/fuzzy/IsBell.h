@@ -11,9 +11,9 @@ namespace fuzzy {
 	public:
 		IsBell();
 		IsBell(const T & a, const T & b, const T & c);
-		~IsBell();
+		virtual ~IsBell();
 
-		T evaluate(Expression<T> * o) const;
+		virtual T evaluate(Expression<T> * o) const;
 	private:
 		T a, b, c;
 	};

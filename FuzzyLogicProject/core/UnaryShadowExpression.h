@@ -16,6 +16,7 @@ namespace core {
 		virtual T evaluate(Expression<T> * o) const;
 
 		void setTarget(UnaryExpression<T> * _target);
+		UnaryExpression<T> * getTarget();
 	private:
 		UnaryExpression<T> * target;
 	};
@@ -50,6 +51,12 @@ namespace core {
 	void UnaryShadowExpression<T>::setTarget(UnaryExpression<T> * _target)
 	{
 		target = _target;
+	}
+
+	template <class T>
+	UnaryExpression<T> * UnaryShadowExpression<T>::getTarget()
+	{
+		return target;
 	}
 }
 

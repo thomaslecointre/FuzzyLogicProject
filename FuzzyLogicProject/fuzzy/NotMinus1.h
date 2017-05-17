@@ -12,9 +12,9 @@ namespace fuzzy {
 	{
 	public:
 		NotMinus1();
-		~NotMinus1();
+		virtual ~NotMinus1();
 		
-		T evaluate(Expression<T> * o) const;
+		virtual T evaluate(Expression<T> * o) const;
 	};
 
 	template<class T>

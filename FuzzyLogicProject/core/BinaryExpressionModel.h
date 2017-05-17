@@ -12,10 +12,10 @@ namespace core {
 		BinaryExpressionModel();
 		BinaryExpressionModel(BinaryExpression<T> * __operator, Expression<T> * _left, Expression<T> * _right);
 		BinaryExpressionModel(BinaryExpression<T> * __operator);
-		~BinaryExpressionModel();
+		virtual ~BinaryExpressionModel();
 
-		T evaluate() const;
-		T evaluate(Expression<T> * l, Expression<T> * r) const;
+		virtual T evaluate() const;
+		virtual T evaluate(Expression<T> * l, Expression<T> * r) const;
 
 		BinaryExpression<T> * getOperator();
 		Expression<T> * getLeft();

@@ -12,8 +12,8 @@ namespace fuzzy {
 	{
 	public:
 		ThenMin();
-		~ThenMin();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual ~ThenMin();
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>

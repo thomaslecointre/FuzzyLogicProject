@@ -16,7 +16,7 @@ namespace core {
 	{
 	public:
 		ExpressionFactory();
-		~ExpressionFactory();
+		virtual ~ExpressionFactory();
 
 		Expression<T> * hold(Expression<T> * e);
 		Expression<T> * newUnary(UnaryExpression<T> * ope, Expression<T> * o);

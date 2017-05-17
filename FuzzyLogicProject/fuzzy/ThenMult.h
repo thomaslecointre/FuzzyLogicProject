@@ -10,8 +10,8 @@ namespace fuzzy {
 	{
 	public:
 		ThenMult();
-		~ThenMult();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual ~ThenMult();
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>
