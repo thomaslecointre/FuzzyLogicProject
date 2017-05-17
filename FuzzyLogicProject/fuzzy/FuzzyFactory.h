@@ -26,6 +26,8 @@ namespace fuzzy {
 			SugenoConclusion<T> * opConclusion,
 			SugenoThen<T> * opSugenoThen
 			);
+		~FuzzyFactory();
+		
 
 		Expression<T> * newNot(Expression<T> * e);
 		Expression<T> * newIs(Expression<T> * e, Is<T> * is);
@@ -82,6 +84,21 @@ namespace fuzzy {
 		conclusion(new NaryShadowExpression<T>(opConclusion))
 	{
 
+	}
+
+	template <class T>
+	FuzzyFactory<T>::~FuzzyFactory()
+	{
+		ExpressionFactory<T>::~ExpressionFactory();
+		delete not;
+		delete and;
+		delete or ;
+		delete then;
+		delete defuzz;
+		delete agg;
+		delete sugenoThen;
+		delete sugeno;
+		delete conclusion;
 	}
 
 	template<class T>

@@ -36,6 +36,7 @@ namespace core {
 	template<class T>
 	NaryShadowExpression<T>::~NaryShadowExpression()
 	{
+		delete target;
 	}
 
 	template<class T>

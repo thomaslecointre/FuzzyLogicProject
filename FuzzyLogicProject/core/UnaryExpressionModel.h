@@ -16,9 +16,12 @@ namespace core {
 		T evaluate() const;
 		T evaluate(Expression<T> * o) const;
 
+		UnaryExpression<T> * getOperator();
+		Expression<T> * getOperand();
+
 	private:
-		UnaryExpression * _operator;
-		Expression * operand;
+		UnaryExpression<T> * _operator;
+		Expression<T> * operand;
 	};
 
 	template<class T>
@@ -54,6 +57,18 @@ namespace core {
 			return _operator->evaluate(o);
 		else
 			throw std::exception();
+	}
+
+	template<class T>
+	UnaryExpression<T> * UnaryExpressionModel<T>::getOperator()
+	{
+		return _operator;
+	}
+	
+	template<class T>
+	Expression<T> * UnaryExpressionModel<T>::getOperand()
+	{
+		return operand;
 	}
 }
 #endif 

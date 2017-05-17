@@ -12,7 +12,10 @@ namespace fuzzy {
 	class SugenoDefuzz : public NaryExpression<T>
 	{
 	public:
-		T evaluate(typename vector<Expression<T>*> * operands) const;
+		SugenoDefuzz() {};
+		virtual ~SugenoDefuzz() {};
+
+		virtual T evaluate(typename vector<Expression<T>*> * operands) const;
 	};
 
 	template<class T>
