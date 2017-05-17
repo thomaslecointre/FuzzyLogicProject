@@ -14,11 +14,13 @@ namespace core {
 	public:
 		NaryShadowExpression();
 		NaryShadowExpression(NaryExpression<T> * _target);
-		~NaryShadowExpression();
+		virtual ~NaryShadowExpression();
 
-		T evaluate(typename vector<Expression<T>*> * operands) const;
+		virtual T evaluate(typename vector<Expression<T>*> * operands) const;
+
 		void setTarget(NaryExpression<T> * _target);
 		NaryExpression<T> * getTarget();
+
 	private:
 		NaryExpression<T> * target;
 	};

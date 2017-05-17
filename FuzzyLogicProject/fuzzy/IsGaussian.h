@@ -11,9 +11,9 @@ namespace fuzzy {
 	public:
 		IsGaussian();
 		IsGaussian(const T & sdev, const T & expectedVal);
-		~IsGaussian();
+		virtual ~IsGaussian();
 
-		T evaluate(Expression<T> * o) const;
+		virtual T evaluate(Expression<T> * o) const;
 	private:
 		T sdev, expectedVal;
 	};

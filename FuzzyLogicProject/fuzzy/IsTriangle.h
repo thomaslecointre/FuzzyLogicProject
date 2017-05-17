@@ -13,9 +13,9 @@ namespace fuzzy {
 	public:
 		IsTriangle();
 		IsTriangle(const T& _min, const T& _mid, const T& _max);
-		~IsTriangle();
+		virtual ~IsTriangle();
 
-		T evaluate(Expression<T> * o) const;
+		virtual T evaluate(Expression<T> * o) const;
 	private:
 		T min, mid, max;
 	};

@@ -12,8 +12,9 @@ namespace fuzzy {
 	{
 	public:
 		AggMax();
-		~AggMax();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual ~AggMax();
+
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>

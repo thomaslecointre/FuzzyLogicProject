@@ -10,8 +10,9 @@ namespace fuzzy {
 	{
 	public:
 		OrPlus();
-		~OrPlus();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual ~OrPlus();
+		
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>

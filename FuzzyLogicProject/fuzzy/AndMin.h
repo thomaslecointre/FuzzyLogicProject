@@ -12,8 +12,8 @@ namespace fuzzy {
 	{
 	public: 
 		AndMin();
-		~AndMin();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual ~AndMin();
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>

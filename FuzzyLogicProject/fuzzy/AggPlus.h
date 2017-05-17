@@ -11,7 +11,7 @@ namespace fuzzy {
 	public:
 		AggPlus();
 		~AggPlus();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>

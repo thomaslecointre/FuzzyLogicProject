@@ -10,8 +10,8 @@ namespace fuzzy {
 	{
 	public:
 		AndMult();
-		~AndMult();
-		T evaluate(Expression<T> *l, Expression<T> *r) const;
+		virtual ~AndMult();
+		virtual T evaluate(Expression<T> *l, Expression<T> *r) const;
 	};
 
 	template<class T>
