@@ -50,7 +50,7 @@ namespace core {
 		if (operands != NULL)
 			return evaluate(operands);
 		else
-			return 0;
+			throw std::exception();
 	}
 
 	template<class T>
@@ -59,7 +59,7 @@ namespace core {
 		if (_operator != NULL)
 			return _operator->evaluate(operands);
 		else
-			return 0;
+			throw std::exception();
 	}
 }
 #endif // !NARY_EXPRESSION_MODEL

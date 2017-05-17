@@ -1,7 +1,9 @@
 #ifndef BINARY_EXPRESSION_MODEL_H
 #define	BINARY_EXPRESSION_MODEL_H
+
 #include "BinaryExpression.h"
 #include "Expression.h"
+
 namespace core {
 	template <class T>
 	class BinaryExpressionModel : public BinaryExpression<T>, public Expression<T>
@@ -55,7 +57,7 @@ namespace core {
 		if (left != NULL && right != NULL)
 			return evaluate(left, right);
 		else
-			return NULL;
+			throw std::exception();
 	}
 
 	template<class T>
@@ -64,7 +66,7 @@ namespace core {
 		if (_operator != NULL)
 			return _operator->evaluate(l, r);
 		else
-			return NULL;
+			throw std::exception();
 	}
 
 	template<class T>

@@ -44,7 +44,7 @@ namespace core {
 		if (operand != nullptr)
 			return evaluate(operand);
 		else
-			return NULL;
+			throw std::exception();
 	}
 
 	template<class T>
@@ -53,7 +53,7 @@ namespace core {
 		if (_operator != nullptr)
 			return _operator->evaluate(o);
 		else
-			return NULL;
+			throw std::exception();
 	}
 }
 #endif 

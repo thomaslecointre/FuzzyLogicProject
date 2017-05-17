@@ -12,7 +12,7 @@
 
 void mamdaniFuzzyInference(_FuzzyFactory_ & f)
 {
-	// membership function
+	// Membership functions
 	_IsTriangle_ poor(-5, 0, 5);
 	_IsTriangle_ good(0, 5, 10);
 	_IsTriangle_ excellent(5, 10, 15);
@@ -21,7 +21,7 @@ void mamdaniFuzzyInference(_FuzzyFactory_ & f)
 	_IsTriangle_ average(10, 15, 20);
 	_IsTriangle_ generous(20, 25, 30);
 
-	// values
+	// Values
 	_ValueModel_ service(3);
 	_ValueModel_ food(8);
 	_ValueModel_ tips(0);
@@ -46,8 +46,7 @@ void mamdaniFuzzyInference(_FuzzyFactory_ & f)
 
 	_Expression_ * system = f.newDefuzz(&tips, r, 0, 25, 0.1);
 
-
-	// apply input
+	// Apply input
 	float s;
 	while (true)
 	{
@@ -76,7 +75,7 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	_IsTrapezoidLeft_ rancid(1.5, 4);
 	_IsTrapezoidRight_ delicious(7, 9);
 
-	// Defuzz
+	// Defuzz and Coefficients
 	_SugenoDefuzz_ opSugeno;
 	_vector_ coef;
 	coef.push_back(1);
@@ -84,7 +83,7 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	_SugenoConclusion_ opConclusion(coef);
 	f.changeSugenoConclusion(opConclusion);
 
-	// Conclusion
+	// Conclusions
 	_vectorExpression_ serviceFood;
 	serviceFood.push_back(&service);
 	serviceFood.push_back(&food);
@@ -125,10 +124,9 @@ void sugenoFuzzyInference(_FuzzyFactory_ & f)
 	// Defuzzification
 	_Expression_ *system = f.newSugeno(&rules);
 
-
-	float s = 0;
-
-	while (s != -1)
+	// Apply input
+	float s;
+	while (true)
 	{
 		cout << "service : "; 
 		cin >> s;
@@ -157,9 +155,9 @@ int main()
 	// fuzzy expression factory
 	_FuzzyFactory_ f(&opNot, &opAnd, &opOr, &opThen, &opDefuzz, &opAgg, &opSugenoDefuzz, &opConclusion, &opSugenoThen);
 
-	// mamdaniFuzzyInference(f);
+	mamdaniFuzzyInference(f);
 
-	sugenoFuzzyInference(f);
+	// sugenoFuzzyInference(f);
 
 	return 0;
 }

@@ -44,7 +44,7 @@ namespace core {
 		if (target != NULL)
 			return target->evaluate(operands);
 		else
-			return 0;
+			throw std::exception();
 	}
 
 	template<class T>

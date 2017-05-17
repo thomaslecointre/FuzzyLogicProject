@@ -42,7 +42,8 @@ namespace core {
 	{
 		if (target != NULL)
 			return target->evaluate(o);
-		return NULL;
+		else
+			throw std::exception();
 	}
 
 	template <class T>

@@ -74,7 +74,6 @@ namespace evaluation {
 	template<class T>
 	ostream& Shape<T>::PrintOn(ostream& os) const
 	{
-		/*
 		os << '[';
 		
 		for (typename vector<T>::const_iterator itF = fBegin(); itF != fEnd(); itF++)
@@ -83,7 +82,7 @@ namespace evaluation {
 		}
 
 		os << " ]" << endl;
-		*/
+		
 		os << '[';
 			
 		for (typename vector<T>::const_iterator itS = sBegin(); itS != sEnd(); itS++)

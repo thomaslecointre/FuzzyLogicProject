@@ -32,10 +32,8 @@ namespace fuzzy {
 	{
 		Shape<T> * shape = Evaluator<T>::buildShape(min, max, step, l, (BinaryExpressionModel<T>*)r);
 
-		// shape->PrintOn(std::cout);
-
 		// Determine how much area there is within the shape
-		// double area = std::accumulate(shape->sBegin(), shape->sEnd(), 0);
+
 		double area = 0;
 		
 		double leftSide;
@@ -61,9 +59,9 @@ namespace fuzzy {
 		
 		// Find x coordinate of COG
 
-		// std::cout << "area : " << area << std::endl;
+		
 		double halfway = area / 2.0;
-		// std::cout << "halfway : " << halfway << std::endl;
+		
 		area = 0.0;
 		T fCoord = 0;
 		itS = shape->sBegin();

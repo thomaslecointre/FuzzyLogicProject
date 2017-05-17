@@ -23,7 +23,7 @@ namespace fuzzy {
 		T PremiseValue();
 	private:
 		And<T> * andFunction;
-		mutable T premiseValue;
+		T premiseValue;
 	};
 	
 	template<class T>
@@ -62,7 +62,6 @@ namespace fuzzy {
 	template<class T>
 	T SugenoThen<T>::PremiseValue()
 	{
-		cout << "premiseValue on return : " << premiseValue << endl;
 		return premiseValue;
 	}
 

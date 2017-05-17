@@ -33,14 +33,10 @@ namespace fuzzy {
 			denominator += sugeno->PremiseValue();
 		}
 
-		cout << "numerator : " << numerator << endl;
-		cout << "denominator : " << denominator << endl;
-
 		if (denominator != 0)
 			return numerator / denominator;
 		else
-			return 0;
-
+			throw exception();
 	}
 }
 #endif
